@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Fredoka, Geist } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-import { APP_DESCRIPTION, APP_NAME, SERVER_URL } from "@/lib/constans";
+import { APP_DESCRIPTION, APP_NAME, SERVER_URL } from "@/lib/constants";
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 

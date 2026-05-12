@@ -117,6 +117,12 @@
     justify-content: center;
   }
 
+  .flex-start {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  }
+
   .flex-between {
     display: flex;
     align-items: center;
@@ -485,6 +491,16 @@
     background: linear-gradient(90deg, var(--mint), var(--primary));
   }
 
+   .footer {
+    margin-top: 80px;
+    padding: 54px;
+    border-top: 1px solid rgba(139, 124, 246, 0.14);
+    background:
+      radial-gradient(circle at 12% 20%, rgba(85, 214, 202, 0.14), transparent 28%),
+      radial-gradient(circle at 86% 72%, rgba(255, 142, 209, 0.14), transparent 28%),
+      linear-gradient(135deg, #ffffff, #f7f4ff);
+  }
+
   .pastel-mint {
     background: linear-gradient(135deg, #dffbf7, #f4fffd);
   }
@@ -638,7 +654,12 @@
   .info-card {
     grid-template-columns: 1fr;
   }
+   .footer {
+    padding: 42px 28px;
+  }
 }
+
+
 
 @theme inline {
 
