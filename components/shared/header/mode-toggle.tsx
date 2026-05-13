@@ -23,7 +23,7 @@ const ModeToggle = () => {
 
     return (
         <DropdownMenu>
-            <DropdownMenuTrigger>
+            <DropdownMenuTrigger asChild>
                 <button className="btn-secondary" >
                     {theme === 'system' ? <SunMoon/> : theme === 'dark' ? <MoonIcon/> : <SunIcon/>}
                 </button>
