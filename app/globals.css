@@ -121,6 +121,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  max-width: 340px;
   }
 
   .flex-between {
@@ -500,6 +501,68 @@
       radial-gradient(circle at 86% 72%, rgba(255, 142, 209, 0.14), transparent 28%),
       linear-gradient(135deg, #ffffff, #f7f4ff);
   }
+
+  .footer-text {
+    margin-top: 18px;
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.65;
+    font-weight: 500;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+   .footer-link {
+    color: var(--muted);
+    font-size: 15px;
+    font-weight: 600;
+    transition: 0.2s ease;
+  }
+
+  .footer-link:hover {
+    color: var(--primary-dark);
+    transform: translateX(4px);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr repeat(3, 1fr);
+    gap: 36px;
+  }
+
+  .footer-socials {
+    display: flex;
+    gap: 12px;
+    margin-top: 22px;
+  }
+
+  .footer-social {
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+    background: rgba(139, 124, 246, 0.1);
+    color: var(--primary-dark);
+    font-size: 18px;
+    transition: 0.2s ease;
+  }
+
+  .footer-social:hover {
+    transform: translateY(-3px);
+    background: var(--primary);
+    color: white;
+  }
+
+  .footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+
 
   .pastel-mint {
     background: linear-gradient(135deg, #dffbf7, #f4fffd);
