@@ -26,8 +26,8 @@ const HomePage = () => {
           </Link>
         </div>
       </div>
-      <div className="hero-visual">
-        <Image src='/hero-cat.png' alt="Cat" width={750} height={600}/>
+      <div>
+        <Image className="hero-cat-image" src='/hero-cat3.png' alt="Cat" width={900} height={800}/>
       </div>
     </div>
   )
