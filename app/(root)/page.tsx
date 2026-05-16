@@ -1,9 +1,12 @@
 import { Star, ArrowBigRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import SubjectList from "@/components/shared/subjects/subject-list";
+import subjectsData from "@/db/subjects-data";
 
 const HomePage = () => {
   return (
+    <>
     <div className="hero" >
       <div className="hero-content">
         <div className="badge">
@@ -30,6 +33,8 @@ const HomePage = () => {
         <Image className="hero-cat-image" src='/hero-cat3.png' alt="Cat" width={900} height={800}/>
       </div>
     </div>
+    <SubjectList data={subjectsData.subjects}/>
+    </>
   )
 }
 

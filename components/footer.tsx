@@ -49,7 +49,6 @@ const Footer = () => {
                         <Link href='/math'className="footer-link" >Math</Link>
                         <Link href='/english' className="footer-link">English</Link>
                         <Link href='/reading' className="footer-link" >Reading</Link>
-                        <Link href='/logic' className="footer-link" >Logic</Link>
                     </div>
                 </div>
 
