@@ -1,8 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { APP_NAME } from "@/lib/constants";
-import Menu from "./menu";
-import Login from "./login";
+import MenuSheet from "./menu-sheet";
 
 const Header = () => {
     return (
@@ -20,8 +19,7 @@ const Header = () => {
                     </Link>
                     <p className="text-primary" >{APP_NAME}</p>
                 </div>
-                <Menu/>
-                <Login/>
+                <MenuSheet/>
             </div>
         </header>
     )
