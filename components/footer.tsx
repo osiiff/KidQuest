@@ -70,8 +70,8 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="border-t flex-start" >
-                    <Heart className="text-blue-300"/>
-                    <p className="text-blue-soft" >{currentYear} {APP_NAME}</p>
+                    <Heart className="text-primary"/>
+                    <p className="text-primary" >{currentYear} {APP_NAME}</p>
                 </div>
             </div>
         </footer>
