@@ -20,7 +20,7 @@ model Subject {
   image String?
 
   tasks Task[]
-  
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -31,13 +31,16 @@ model Task {
   slug String @unique
   description String
   image String?
+  question String
+  options String[]
+  correctAnswer String
+
 
   subjectId String
   subject Subject @relation(fields: [subjectId], references: [id], onDelete: Cascade)
 
   difficulty String @default("beginner")
   ageGroup String @default("all")
-  type String @default("game")
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
