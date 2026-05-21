@@ -1,7 +1,14 @@
-const SubjectsPage = () => {
+import TasksList from "@/components/shared/subjects/tasks-list";
+import { getLatestSubjects } from "@/lib/actions/subject.action";
+
+
+
+const SubjectsPage = async () => {
+  const latestSubjects = await getLatestSubjects();
     return (
-        <div className="hero">
+        <div className="">
             <p className="hero-title">Choose fun activities for kids</p>
+            <TasksList data={latestSubjects}/>
         </div>
     )
 }
