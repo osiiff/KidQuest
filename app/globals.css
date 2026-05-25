@@ -152,6 +152,10 @@
     letter-spacing: -0.04em;
   }
 
+  .border-rounded {
+    border-radius: var(--radius-2xl);
+  }
+
   .logo-icon {
     width: 48px;
     height: 48px;
@@ -370,7 +374,6 @@
   grid-template-columns: 104px 1fr;
   gap: 20px;
   align-items: center;
-  min-height: 174px;
   padding: 20px;
   border-radius: 26px;
   background: white;
@@ -384,8 +387,6 @@
   }
 
   .subject-icon {
-  width: 104px;
-  height: 124px;
   border-radius: 24px;
   overflow: hidden;
   display: flex;
@@ -402,6 +403,7 @@
   .subject-title {
   font-size: 24px;
   font-weight: 800;
+  width: 50%;
   color: var(--foreground);
   }
 
@@ -442,7 +444,6 @@
 
   .info-panel {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
     gap: 28px;
     padding: 28px;
     border-radius: var(--radius-xl);

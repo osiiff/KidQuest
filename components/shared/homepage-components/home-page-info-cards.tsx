@@ -4,7 +4,7 @@ import Image from "next/image";
 const HomePageInfoCards = () => {
     return (
         <div className="info-section">
-            <div className="info-panel">
+            <div className="info-panel grid grid-cols-3">
                 <Card className="info-card">
                     <Image className="info-icon" src='/game_icon_white.png' alt='Game' width={70} height={70}/>
                     <CardContent>

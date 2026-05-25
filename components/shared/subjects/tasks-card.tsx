@@ -15,10 +15,12 @@ type TaskCardProps = {
 
 const TaskCard = ({task}: TaskCardProps) => {
     return (
-        <Card className="subject-card ">
-            <Link href={`/tasks/${task.slug}`} className="flex flex-col gap-3">
-                <Image src={task.image} alt={task.title} width={100} height={50} className="object-cover"/>
-                <p className="subject-title">{task.title}</p>
+        <Card className="subject-card">
+            <Link href={`/tasks/${task.slug}`} className="flex h-full w-full flex-col gap-3">
+            <div className="relative w-full h-3/5 flex-1 overflow-hidden rounded-2xl">
+                <Image src={task.image} alt={task.title} width={200} height={200} sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw" className="subject-icon"/>
+            </div>
+                <p className="subject-text">{task.title}</p>
             </Link>
         </Card>
     )
