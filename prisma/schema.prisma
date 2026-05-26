@@ -17,7 +17,7 @@ model Subject {
   name String
   slug String @unique
   description String
-  image String?
+  image String
 
   tasks Task[]
 
@@ -30,7 +30,7 @@ model Task {
   title String
   slug String @unique
   description String
-  image String?
+  image String
   question String
   options String[]
   correctAnswer String

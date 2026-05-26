@@ -47,7 +47,7 @@ async function main() {
                         description: 'Solve an easy addition problem with small numbers.',
                         image: '/tasks/math/m-task3.png',
                         difficulty: 'medium',
-                        ageGroup: 'Kindergarted',
+                        ageGroup: 'Kindergarden',
                         question: 'What is 3 + 2?',
                         options: ["5", "4", "6", "7"],
                         correctAnswer: "5"
@@ -58,7 +58,7 @@ async function main() {
                         description: 'Practice putting numbers in the correct order.',
                         image: '/tasks/math/m-task4.png',
                         difficulty: 'medium',
-                        ageGroup: 'Kindergarten',
+                        ageGroup: 'Kindergarden',
                         question: 'Which number comes after 9?',
                         options: ["8", "10", "11", "7"],
                         correctAnswer: "10"
