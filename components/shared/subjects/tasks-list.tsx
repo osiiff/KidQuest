@@ -1,20 +1,8 @@
 import TaskCard from "./tasks-card";
-
-type Task = {
-    title: string;
-    slug: string;
-    image: string;
-}
-
-type Subject = {
-  name: string;
-  slug: string;
-  image: string | null;
-  tasks: Task[];
-};
+import { SubjectWithTasks } from "@/types";
 
 type TasksListProps = {
-    data: Subject[];
+    data: SubjectWithTasks[];
 }
 
 

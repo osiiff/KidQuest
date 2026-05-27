@@ -1,13 +1,9 @@
 import { Card } from "@/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
+import { Task } from "@/types";
 
 
-type Task = {
-    title: string;
-    slug: string;
-    image: string;
-}
 
 type TaskCardProps = {
   task: Task;

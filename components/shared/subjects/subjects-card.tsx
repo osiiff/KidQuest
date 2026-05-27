@@ -32,6 +32,7 @@ const SubjectsCard = ({subject}: SubjectsCardProps) => {
                 </Link>
 
                 <p className="subject-text">{subject.description}</p>
+
             </CardContent>
         </Card>
     )
