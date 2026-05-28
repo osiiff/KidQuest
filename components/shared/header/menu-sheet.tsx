@@ -3,14 +3,13 @@ import Login from "./login";
 import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { EllipsisVertical } from "lucide-react";
 import Link from "next/link";
-import ModeToggle from "./mode-toggle";
 
 
 
 const MenuSheet = () => {
     return (
         <div>
-            <div className="flex-between">
+            <div className="w-full justify-between flex">
                 <Menu/>
                 <Login/>
             </div>
@@ -31,7 +30,6 @@ const MenuSheet = () => {
                         <Link href='/about' className="nav-link" >
                             About
                         </Link>
-                        <ModeToggle/>
                         <Link href='/login' className="btn-secondary">
                             Log In
                         </Link>
