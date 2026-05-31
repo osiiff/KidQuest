@@ -31,10 +31,6 @@ model Task {
   slug String @unique
   description String
   image String
-  question String
-  options String[]
-  correctAnswer String
-
 
   subjectId String
   subject Subject @relation(fields: [subjectId], references: [id], onDelete: Cascade)
@@ -44,4 +40,19 @@ model Task {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  
+  questions Question[]
+}
+
+model Question {
+  id           String      @id @default(cuid())
+  text          String
+  options       String[]
+  correctAnswer String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  taskId        String
+  task          Task     @relation(fields: [taskId], references: [id], onDelete: Cascade)
 }

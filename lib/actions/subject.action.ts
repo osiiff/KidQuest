@@ -12,3 +12,24 @@ export async function getLatestSubjects() {
 
     return subjects;
 }
+
+export async function getTaskBySlug(slug: string) {
+    const task = prisma.task.findFirst({
+        where: {
+            slug,
+        },
+        include: {
+            subject: true,
+            questions: {
+                orderBy: {
+                    id: 'asc'
+                }
+            }
+        },
+    });
+
+    if (!task) return null
+
+    return task
+    
+} 
