@@ -3,6 +3,8 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { ArrowBigRight } from "lucide-react";
 import { useState } from "react";
+import Link from "next/link";
+import { Progress } from "@/components/ui/progress";
 
 
 type Question = {
@@ -44,23 +46,18 @@ const TaskQuiz = ({questions}: TaskQuizProps) => {
         setCurrentQuestionIndex((prev) => prev + 1)
     }
 
-    const isLastQuestion = currentQuestionIndex === questions.length - 1;
+    const isLastQuestion = currentQuestionIndex === questions.length -1;
 
-    if(!currentQuestion) {
-        return (
-                <Card>
-                    <CardContent>
-                    <p>
-                        Great job! Your score: {score} / {questions.length}
-                    </p>
-                    </CardContent>
-                </Card>
-            );
-    }
 
+    
 
     return (
-         <Card className="bg-white border-rounded shadow-2xs w-full p-4">
+        <div className="w-full">
+            <div className="flex justify-end p-4 w-full gap-3">
+                <Progress className="w-3/12 flex top-1 h-4" value={(currentQuestionIndex/questions.length)*100} />
+                <p className="font-medium">Question {currentQuestionIndex + 1} of {questions.length}</p>
+            </div>
+            <Card className="bg-white border-rounded shadow-2xs w-full p-4">
                 <CardHeader className="flex-center p-4">
                     <p className="hero-title text-3xl">
                         {currentQuestion.text}
@@ -89,34 +86,45 @@ const TaskQuiz = ({questions}: TaskQuizProps) => {
                         })}
                     </div>
                     {isCorrect === true && (
-                        <p>
-                            Correct!
-                        </p>
+                        <div className="flex w-full justify-center pb-4">
+                            <p className="hero-text text-2xl text-mint flex justify-center">
+                                Correct!
+                            </p>
+                        </div>
                     )}
                     {isCorrect === false && (
-                        <p>
-                            Wrong!
-                        </p>
+                        <div className="flex w-full justify-center pb-4">
+                            <p className="hero-text text-2xl text-red-400 flex justify-center">
+                                Wrong!
+                            </p>
+                        </div>
                     )}
 
                     {selectedAnswer && !isLastQuestion && (
                         <div className="w-full flex justify-center">
-                            <button className="flex align-middle justify-center gap-2 btn-primary">
+                            <button className="flex align-middle justify-center gap-2 btn-primary" onClick={() => handleNextQuestion()}>
                                 Next question <ArrowBigRight/>
                             </button>
                         </div>
                     )}
 
                     {selectedAnswer && isLastQuestion && (
-                        <div className="w-full flex justify-center">
-                            <button className="flex align-middle justify-center gap-2 btn-primary">
-                                Finish
-                            </button>
+                       <div className="w-full flex justify-center gap-2">
+                            <p className="hero-text text-2xl text-mint">
+                                Your score: {score} / {questions.length}
+                            </p>
+                            <Link href='/subjects' className="btn-primary" >
+                                Finish <ArrowBigRight/>
+                            </Link>
                         </div>
+                           
                     )}
+
                     
                 </CardContent>
             </Card>
+        </div>
+         
     );
 }
 
