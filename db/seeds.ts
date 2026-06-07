@@ -1,6 +1,7 @@
 import "dotenv/config";
 import { PrismaClient } from "@/lib/generated/prisma/client";
 import { PrismaPg } from "@prisma/adapter-pg";
+import { hashSync } from "bcrypt-ts-edge";
 
 const adapter = new PrismaPg({
   connectionString: process.env.DATABASE_URL!,
@@ -11,7 +12,12 @@ const prisma = new PrismaClient({ adapter });
 async function main() {
     await prisma.task.deleteMany();
     await prisma.subject.deleteMany();
-    const math = await prisma.subject.create({
+    await prisma.account.deleteMany();
+    await prisma.session.deleteMany();
+    await prisma.verificationToken.deleteMany();
+    await prisma.user.deleteMany();
+
+    await prisma.subject.create({
         data: {
             name: 'Math',
             slug: 'math',
@@ -248,7 +254,7 @@ async function main() {
         }
     })
 
-    const english = await prisma.subject.create({
+    await prisma.subject.create({
         data: {
             name: 'English',
             slug: 'english',
@@ -484,7 +490,7 @@ async function main() {
     })
 
 
-    const reading = await prisma.subject.create({
+    await prisma.subject.create({
         data: {
             name: 'Reading',
             slug: 'reading',
@@ -719,7 +725,25 @@ async function main() {
         }
     })
 
-    console.log(math, english, reading);
+
+    await prisma.user.createMany({
+        data: [
+                {
+                name: 'John',
+                email: 'admin@example.com',
+                password: hashSync('123456', 10),
+                role: 'admin',
+                },
+                {
+                name: 'Jane',
+                email: 'user@example.com',
+                password: hashSync('123456', 10),
+                role: 'user',
+                },
+            ]
+
+    })
+
 }
 
 
