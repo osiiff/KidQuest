@@ -58,7 +58,7 @@
     radial-gradient(circle at 0% 88%, rgba(255, 142, 209, 0.18), transparent 34%),
     radial-gradient(circle at 100% 92%, rgba(139, 124, 246, 0.14), transparent 34%),
     linear-gradient(135deg, #eefcff 0%, #fbfcff 45%, #f8f1ff 100%);
-
+    border-radius: var(--radius-2xl);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;

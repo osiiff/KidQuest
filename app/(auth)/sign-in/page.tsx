@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import Link from "next/link";
 import Image from "next/image";
 import { APP_NAME } from "@/lib/constants";
+import CredentialsSignInForms from "./credentials-signin-form";
 
 export const metadata: Metadata = {
     title: 'Sign in',
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
 
 const SignInPage = () => {
     return (
-        <div className="w-full max-w-md border-rounded border-2 bg-[radial-gradient(circle_at_78%_35%,rgba(139,124,246,0.22),transparent_34%),radial-gradient(circle_at_88%_80%,rgba(255,142,209,0.14),transparent_28%),radial-gradient(circle_at_15%_20%,rgba(85,214,202,0.12),transparent_30%),linear-gradient(110deg,#ffffff_0%,#f8fbff_48%,#f4efff_100%)]">
+        <div className="w-full max-w-md border-rounded border-2 bg-white">
             <Card className="p-3">
                 <CardHeader className="flex-center w-full">
                     <Link href='/' className="flex-center">
@@ -21,7 +22,7 @@ const SignInPage = () => {
                     <CardDescription className="text-primary font-semibold justify-center flex">Log in to continue your learning adventure</CardDescription>
                 </CardHeader>
                 <CardContent>
-
+                    <CredentialsSignInForms/>
                 </CardContent>
             </Card>
         </div>
