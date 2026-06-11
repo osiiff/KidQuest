@@ -1,10 +1,10 @@
 import Link from "next/link";
-
+import UserButton from "./user-button";
 
 const Menu = () => {
     return (
-        <div className="flex-center" >
-            <nav className="nav" >
+        <div className="flex-between gap-5" >
+            <nav className="nav flex-center" >
                 <Link href='/' className="nav-link" >
                     Home
                 </Link>
@@ -14,6 +14,9 @@ const Menu = () => {
                 <Link href='/about' className="nav-link" >
                     About
                 </Link>
+            </nav>
+            <nav className="nav">
+                <UserButton/>
             </nav>
         </div>
     )

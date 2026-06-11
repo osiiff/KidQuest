@@ -1,17 +1,16 @@
 import Menu from "./menu";
-import Login from "./login";
 import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { EllipsisVertical } from "lucide-react";
 import Link from "next/link";
+import UserButton from "./user-button";
 
 
 
 const MenuSheet = () => {
     return (
         <div>
-            <div className="w-full justify-between flex">
+            <div className="">
                 <Menu/>
-                <Login/>
             </div>
             <nav className="md:hidden">
                 <Sheet>
@@ -30,12 +29,7 @@ const MenuSheet = () => {
                         <Link href='/about' className="nav-link" >
                             About
                         </Link>
-                        <Link href='/sign-in' className="btn-secondary">
-                            Sign In
-                        </Link>
-                        <Link href='/signup' className="btn-primary">
-                            Sign Up
-                        </Link>
+                        <UserButton/>
                     </SheetContent>
                 </Sheet>
             </nav>
