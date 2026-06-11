@@ -1,11 +1,33 @@
+"use client";   
+
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { signInDefoltValues } from "@/lib/constants";
+import { useActionState } from "react";
+import { signWithCredentials } from "@/lib/actions/user.actions";
+import { useFormStatus } from "react-dom";
 
 const CredentialsSignInForms = () => {
+    const [ data, action ] = useActionState(signWithCredentials, {
+        success: false,
+        message: ''
+    })
+
+    const SignInButton = () => {
+        const { pending } = useFormStatus();
+
+        return (
+            <button disabled={pending} className="w-full btn-primary">
+                { pending ? 'Signing in...' : 'Sign in' }
+            </button>
+        )
+    }
+
+
+
     return (
-        <form>
+        <form action={action}>
             <div className="space-y-6">
                 <div>
                     <Label htmlFor="email" className="text-primary">
@@ -34,10 +56,15 @@ const CredentialsSignInForms = () => {
                     defaultValue={signInDefoltValues.password}/>
                 </div>
                 <div>
-                    <button className="btn-primary w-full">
-                        Sign In
-                    </button>
+                    <SignInButton/>
                 </div>
+
+                { data && !data.success && (
+                    <div className="text-center text-red-500">
+                        {data.message}
+                    </div>
+                ) }
+
                 <div className="text-sm hero-text flex justify-center">
                     Don&apos;t have account? {'  '}
                     <Link href='/sign-up' target="_self" className="link">Sign Up</Link>
