@@ -7,12 +7,16 @@ import { signInDefoltValues } from "@/lib/constants";
 import { useActionState } from "react";
 import { signWithCredentials } from "@/lib/actions/user.actions";
 import { useFormStatus } from "react-dom";
+import { useSearchParams } from "next/navigation";
 
 const CredentialsSignInForms = () => {
     const [ data, action ] = useActionState(signWithCredentials, {
         success: false,
         message: ''
-    })
+    });
+
+    const searchParams = useSearchParams();
+    const callbackUrl = searchParams.get('callbackUrl') || '/';
 
     const SignInButton = () => {
         const { pending } = useFormStatus();
@@ -28,6 +32,7 @@ const CredentialsSignInForms = () => {
 
     return (
         <form action={action}>
+            <input type="hidden" name="callbackUrl" value={callbackUrl}></input>
             <div className="space-y-6">
                 <div>
                     <Label htmlFor="email" className="text-primary">
