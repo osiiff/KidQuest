@@ -1,6 +1,7 @@
 "use server";
 
 import { signInFormSchema } from "../validators";
+import { signUpFormSchema } from "../validators";
 import { signIn, signOut } from "@/auth";
 import { isRedirectError } from "next/dist/client/components/redirect-error";
 import { hashSync } from "bcrypt-ts-edge";
@@ -31,7 +32,7 @@ export async function signOutUser() {
 
 export async function signUpUser(prevState: unknown, formData: FormData) {
     try {
-        const user = signInFormSchema.parse({
+        const user = signUpFormSchema.parse({
             name: formData.get('name'),
             email: formData.get('email'),
             password: formData.get('password'),

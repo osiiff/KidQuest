@@ -3,14 +3,15 @@
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
-import { signInDefoltValues } from "@/lib/constants";
+import { signUpDefoltValues } from "@/lib/constants";
 import { useActionState } from "react";
-import { signWithCredentials } from "@/lib/actions/user.actions";
 import { useSearchParams } from "next/navigation";
-import SignInButton from "./sign-in-button";
+import SignUpButton from "./sign-up-button";
+import { signUpUser } from "@/lib/actions/user.actions";
 
-const CredentialsSignInForms = () => {
-    const [ data, action ] = useActionState(signWithCredentials, {
+
+const SignUpForm = () => {
+    const [ data, action ] = useActionState(signUpUser, {
         success: false,
         message: ''
     });
@@ -25,6 +26,19 @@ const CredentialsSignInForms = () => {
             <input type="hidden" name="callbackUrl" value={callbackUrl}></input>
             <div className="space-y-6">
                 <div>
+                    <Label htmlFor="name" className="text-primary">
+                        Name
+                    </Label>
+                    <Input 
+                    id="name"
+                    name="name"
+                    type="text"
+                    required 
+                    autoComplete="name"
+                    className="border-2 border-primary"
+                    defaultValue={signUpDefoltValues.name}/>
+                </div>
+                <div>
                     <Label htmlFor="email" className="text-primary">
                         Email
                     </Label>
@@ -35,7 +49,7 @@ const CredentialsSignInForms = () => {
                     required 
                     autoComplete="email"
                     className="border-2 border-primary"
-                    defaultValue={signInDefoltValues.email}/>
+                    defaultValue={signUpDefoltValues.email}/>
                 </div>
                 <div>
                     <Label htmlFor="password" className="text-primary">
@@ -48,10 +62,23 @@ const CredentialsSignInForms = () => {
                     className="border-rounded! border-2 border-primary"
                     required 
                     autoComplete="password"
-                    defaultValue={signInDefoltValues.password}/>
+                    defaultValue={signUpDefoltValues.password}/>
                 </div>
                 <div>
-                    <SignInButton/>
+                    <Label htmlFor="confirmPassword" className="text-primary">
+                        Confirm Password
+                    </Label>
+                    <Input 
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    type="password"
+                    className="border-rounded! border-2 border-primary"
+                    required 
+                    autoComplete="confirmPassword"
+                    defaultValue={signUpDefoltValues.confirmPassword}/>
+                </div>
+                <div>
+                    <SignUpButton/>
                 </div>
 
                 { data && !data.success && (
@@ -61,12 +88,12 @@ const CredentialsSignInForms = () => {
                 ) }
 
                 <div className="text-sm hero-text flex justify-center">
-                    Don&apos;t have account? {'  '}
-                    <Link href='/sign-up' target="_self" className="link">Sign Up</Link>
+                    Already have an account? {'  '}
+                    <Link href='/sign-in' target="_self" className="link">Sign In</Link>
                 </div>
             </div>
         </form>
     )
 }
 
-export default CredentialsSignInForms;
+export default SignUpForm;

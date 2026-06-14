@@ -5,3 +5,10 @@ export const signInDefoltValues = {
     email: '',
     password: '',
 }
+
+export const signUpDefoltValues = {
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
+}

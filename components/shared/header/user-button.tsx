@@ -1,3 +1,5 @@
+
+
 import { auth } from "@/auth";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { signOutUser } from "@/lib/actions/user.actions";
@@ -13,7 +15,7 @@ const UserButton = async () => {
                 <Link href='/sign-in' className="btn-secondary">
                     Sign In
                 </Link>
-                <Link href='/signup' className="btn-primary">
+                <Link href='/sign-up' className="btn-primary">
                     Sign Up
                 </Link>
             </>
