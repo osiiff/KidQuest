@@ -34,7 +34,7 @@ const CredentialsSignInForms = () => {
                     type="email"
                     required 
                     autoComplete="email"
-                    className="border-2 border-primary"
+                    className="border-2 border-primary border-rounded"
                     defaultValue={signInDefoltValues.email}/>
                 </div>
                 <div>
@@ -45,7 +45,7 @@ const CredentialsSignInForms = () => {
                     id="password"
                     name="password"
                     type="password"
-                    className="border-rounded! border-2 border-primary"
+                    className="border-2 border-primary border-rounded"
                     required 
                     autoComplete="password"
                     defaultValue={signInDefoltValues.password}/>
@@ -62,7 +62,7 @@ const CredentialsSignInForms = () => {
 
                 <div className="text-sm hero-text flex justify-center">
                     Don&apos;t have account? {'  '}
-                    <Link href='/sign-up' target="_self" className="link">Sign Up</Link>
+                    <Link href='/sign-up' target="_self" className="underline">Sign Up</Link>
                 </div>
             </div>
         </form>

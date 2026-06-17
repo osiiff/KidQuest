@@ -17,11 +17,11 @@ const HomePageHero = () => {
                 </p>
                 <p className="hero-text">KidQuest makes learning fun and meaningful for kids with playful lessons, cute characters, and exciting rewards.</p>
                 <div className="hero-actions">
-                    <Link className="btn-primary" href="/login">
+                    <Link className="btn-primary" href="/sign-up">
                     <Star/>
                         Start learning
                     </Link>
-                    <Link className="btn-secondary" href="/login">
+                    <Link className="btn-secondary" href="/sign-in">
                     <ArrowBigRight/>
                         Explore subjects
                     </Link>

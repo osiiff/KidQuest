@@ -33,9 +33,8 @@ const SignUpForm = () => {
                     id="name"
                     name="name"
                     type="text"
-                    required 
                     autoComplete="name"
-                    className="border-2 border-primary"
+                    className="border-2 border-primary border-rounded"
                     defaultValue={signUpDefoltValues.name}/>
                 </div>
                 <div>
@@ -45,10 +44,9 @@ const SignUpForm = () => {
                     <Input 
                     id="email"
                     name="email"
-                    type="email"
-                    required 
+                    type="text"
                     autoComplete="email"
-                    className="border-2 border-primary"
+                    className="border-2 border-primary border-rounded"
                     defaultValue={signUpDefoltValues.email}/>
                 </div>
                 <div>
@@ -59,7 +57,7 @@ const SignUpForm = () => {
                     id="password"
                     name="password"
                     type="password"
-                    className="border-rounded! border-2 border-primary"
+                    className="border-2 border-primary border-rounded"
                     required 
                     autoComplete="password"
                     defaultValue={signUpDefoltValues.password}/>
@@ -72,7 +70,7 @@ const SignUpForm = () => {
                     id="confirmPassword"
                     name="confirmPassword"
                     type="password"
-                    className="border-rounded! border-2 border-primary"
+                    className="border-2 border-rounded"
                     required 
                     autoComplete="confirmPassword"
                     defaultValue={signUpDefoltValues.confirmPassword}/>
@@ -89,7 +87,7 @@ const SignUpForm = () => {
 
                 <div className="text-sm hero-text flex justify-center">
                     Already have an account? {'  '}
-                    <Link href='/sign-in' target="_self" className="link">Sign In</Link>
+                    <Link href='/sign-in' target="_self" className="underline">Sign In</Link>
                 </div>
             </div>
         </form>

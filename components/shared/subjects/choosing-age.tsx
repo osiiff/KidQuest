@@ -20,7 +20,7 @@ const ChoosingAge = async () => {
                         <SelectTrigger className="w-auto subject-text bg-white border-rounded">
                             <SelectValue />
                         </SelectTrigger>
-                        <SelectContent position="popper" className="bg-white border-none border-rounded">
+                        <SelectContent position="popper" className="bg-white border-rounded">
                             <SelectGroup className="border-rounded">
                                 <SelectItem value="all" className="subject-text">All ages</SelectItem>
                                 {ageGroups.map((ageGroup) => (
