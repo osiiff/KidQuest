@@ -1,7 +1,7 @@
 import { Star } from "lucide-react";
-import SubscribitionCard from "./subscribition-card";
+import SubscriptionCard from "./subscription-card";
 
-const SubscribitionPage = () => {
+const SubscriptionPage = () => {
     return (
         <div className="w-full my-4 border-rounded border-b-blue-200 border-2 bg-violet-100 p-6">
             <div className="flex justify-center">
@@ -17,9 +17,9 @@ const SubscribitionPage = () => {
                     Unlock new tasks and fun activities. Pick the plan that fits your child&apos;s journey!
                 </div>
             </div>
-            <SubscribitionCard/>
+            <SubscriptionCard/>
         </div>
     );
 }
 
-export default SubscribitionPage;
+export default SubscriptionPage;

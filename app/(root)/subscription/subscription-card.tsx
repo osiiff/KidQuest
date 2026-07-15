@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Link from "next/link";
 
-const SubscribitionCard = () => {
+const SubscriptionCard = () => {
     return (
         <div className="flex flex-row justify-center gap-4 p-4">
             <Card className="border-rounded border-2 flex flex-start flex-col h-auto p-6 gap-3 bg-white w-2xs">
@@ -35,4 +35,4 @@ const SubscribitionCard = () => {
     )
 }
 
-export default SubscribitionCard;
+export default SubscriptionCard;

@@ -156,6 +156,10 @@
     border-radius: var(--radius-2xl);
   }
 
+  .roundedxxl {
+    border-radius: 999px;
+  }
+
   .logo-icon {
     width: 48px;
     height: 48px;
@@ -247,7 +251,6 @@
   }
 
   .hero-text {
-    max-width: 500px;
     margin-top: 24px;
     color: var(--muted);
     font-size: 19px;

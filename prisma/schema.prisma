@@ -115,8 +115,8 @@ model VerificationToken {
 model Subscription {
   id            String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   userId        String    @db.Uuid
-  plan          String
-  status        String
+  plan          SubscriptionPlan
+  status        SubscriptionStatus
   startDate     DateTime @db.Timestamp(6)
   endDate       DateTime @db.Timestamp(6)
   price         Decimal @db.Decimal(12, 2)
@@ -125,4 +125,17 @@ model Subscription {
   paymentId     String?
   createdAt     DateTime @default(now()) @db.Timestamp(6)
   updatedAt     DateTime @updatedAt
+}
+
+enum SubscriptionPlan {
+  MONTHLY
+  THREE_MONTHS
+  YEARLY
+}
+
+enum SubscriptionStatus {
+  ACTIVE
+  EXPIRED
+  CANCELED
+  PENDING
 }
