@@ -26,7 +26,7 @@ const AboutPage = () => {
     </div>
     <div className="w-full p-2 gap-4">
         <p className="text-primary font-bold flex justify-center text-5xl">Our mission</p>
-        <p className="flex justify-center text-center w-full hero-text">To inspiring children to explore, learn and grow every day through playful lessons and loyable characters that encourage 
+        <p className="mx-auto text-center hero-text">To inspire children to explore, learn and grow every day through playful lessons and loyable characters that encourage 
             progress and confidence.
         </p>
     </div>

@@ -3,6 +3,7 @@
 import { auth } from "@/auth";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { signOutUser } from "@/lib/actions/user.actions";
+import { Plus } from "lucide-react";
 import Link from "next/link";
 
 
@@ -17,6 +18,9 @@ const UserButton = async () => {
                 </Link>
                 <Link href='/sign-up' className="btn-primary">
                     Sign Up
+                </Link>
+                <Link href='/subscription' className="btn-primary pastel-pink text-pink-600">
+                        KidQuest <Plus className="w-4 h-4"/>
                 </Link>
             </>
         )
