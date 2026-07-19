@@ -1,5 +1,5 @@
 import { Sheet, SheetTrigger, SheetContent, SheetTitle, SheetDescription } from "@/components/ui/sheet";
-import { Settings2} from "lucide-react";
+import { Funnel} from "lucide-react";
 import ChoosingAge from "./choosing-age";
 import ChoosingSubjects from "./choosing-subjects";
 import ChoosingDifficulty from "./choosing-difficulty";
@@ -7,13 +7,12 @@ import ChoosingDifficulty from "./choosing-difficulty";
 
 
 const SubjectsSlidebar = () => {
-    
     return (
         <div>
             <Sheet>
-                <SheetTrigger className="flex justify-end w-full " >
-                    <p>
-                        <Settings2/>
+                <SheetTrigger className="flex justify-start w-full pt-5" >
+                    <p className="gap-2 flex nav-link">
+                        Filters <Funnel/>
                     </p>
                 </SheetTrigger>
                 <SheetContent className="h-dvh overflow-y-auto" side="left">

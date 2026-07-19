@@ -12,6 +12,8 @@ const ChoosingAge = async () => {
     const ageGroups = Array.from(new Set(tasks.map((task) => task.ageGroup)));
 
 
+
+
     return (
         <section className="p-3 flex align-super">
                 <div className="info-panel w-xs">
