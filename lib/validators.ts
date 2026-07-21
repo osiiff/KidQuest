@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { PAYMENT_METHODS } from './constants';
 
 export const insertTasksSchema = z.object({
     title: z.string().min(3, 'Title must be at least 3 characters'),
@@ -30,4 +31,11 @@ export const signUpFormSchema = z.object({
 }).refine((data) => data.password === data.confirmPassword, {
     message: "Passwords don't match",
     path: ['confirmPassword']
+})
+
+export const paymentMethodSchema = z.object({
+    type: z.string().min(1, 'Payment method is required')
+}).refine((data) => PAYMENT_METHODS.includes(data.type), {
+    path: ['type'],
+    message: 'Invalid payment method',
 })
