@@ -23,7 +23,7 @@ const ChoosingSubjects = async () => {
                 </Link>
                 {subjects.map((subject) => (
                     <div key={subject.id} className="w-full">
-                        <Link href={`${subject.slug}`} className="flex flex-row pastel-blue btn-secondary justify-start ">
+                        <Link href={`/subjects/${subject.slug}`} className="flex flex-row pastel-blue btn-secondary justify-start ">
                             <Image src={`${subject.image}`} alt={subject.name} width={35} height={35} className="subject-icon" />
                             {subject.name}
                         </Link>

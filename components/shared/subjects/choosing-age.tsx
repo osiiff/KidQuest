@@ -1,5 +1,6 @@
-import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+
 import { prisma } from "@/lib/prisma";
+import { ChoosingAgeSelect } from "./choosing-age-select";
 
 
 const ChoosingAge = async () => {
@@ -15,24 +16,7 @@ const ChoosingAge = async () => {
 
 
     return (
-        <section className="p-3 flex align-super">
-                <div className="info-panel w-xs">
-                    <p className="logo">Choose age</p>
-                    <Select defaultValue="all">
-                        <SelectTrigger className="w-auto subject-text bg-white border-rounded">
-                            <SelectValue />
-                        </SelectTrigger>
-                        <SelectContent position="popper" className="bg-white border-rounded">
-                            <SelectGroup className="border-rounded">
-                                <SelectItem value="all" className="subject-text">All ages</SelectItem>
-                                {ageGroups.map((ageGroup) => (
-                                    <SelectItem value={ageGroup} key={ageGroup} className="subject-text">{ageGroup}</SelectItem>
-                                ))}
-                            </SelectGroup>
-                        </SelectContent>
-                    </Select>
-                </div>
-        </section>
+        <ChoosingAgeSelect ageGroups={ageGroups}/>
     )
 }
 

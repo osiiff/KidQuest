@@ -17,7 +17,7 @@ type SubjectsCardProps = {
 const SubjectsCard = ({subject}: SubjectsCardProps) => {
     return (
          <Card className="subject-card">
-            <Link href={`/subject/${subject.slug}`} className="subject-icon">
+            <Link href={`/subjects/${subject.slug}`} className="subject-icon">
                 <Image
                 src={subject.image}
                 width={100}
@@ -27,7 +27,7 @@ const SubjectsCard = ({subject}: SubjectsCardProps) => {
             </Link>
 
             <CardContent className="p-0">
-                <Link href={`/subject/${subject.slug}`}>
+                <Link href={`/subjects/${subject.slug}`}>
                     <h3 className="subject-title">{subject.name}</h3>
                 </Link>
 

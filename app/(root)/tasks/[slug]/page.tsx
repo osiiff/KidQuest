@@ -1,6 +1,6 @@
 import { getTaskBySlug } from "@/lib/actions/subject.action";
 import { notFound } from "next/navigation";
-import { Dot, Book } from "lucide-react";
+import { Dot, HomeIcon } from "lucide-react";
 import Link from "next/link";
 import TaskQuiz from "@/components/shared/tasks/task-quiz";
 import Image from "next/image";
@@ -20,8 +20,8 @@ const TaskPage = async (props: {params: Promise<{slug: string}>}) => {
             
             <div className="flex-between w-full">
                 <div className="gap-2 text-primary bg-white border-rounded shadow-2xs p-2.5">
-                    <Link href='/subjects' className="flex flex-row ">
-                        <Book/>
+                    <Link href={`/subjects/${task.subject.slug}`} className="flex flex-row gap-2">
+                        <HomeIcon/>
                         <p>{task.subject.name}</p>
                         <Dot/>
                         <p>{task.title}</p>

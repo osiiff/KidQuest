@@ -33,3 +33,37 @@ export async function getTaskBySlug(slug: string) {
     return task
     
 } 
+
+export async function getSubjectBySlug(slug: string) {
+    const subject = await prisma.subject.findUnique({
+        where: {
+            slug,
+        },
+        include: {
+            tasks: true,
+        }
+    });
+
+    return subject;
+}
+
+export async function getTaskByGroup(ageGroup: string) {
+  const tasks = await prisma.task.findMany({
+    where: 
+        ageGroup === 'all' ? undefined : {
+            ageGroup,
+        },
+
+    include: {
+        subject: true,
+        questions: {
+            orderBy: {
+                id: 'asc'
+            }
+        }
+    }
+  });
+
+
+  return tasks;
+}

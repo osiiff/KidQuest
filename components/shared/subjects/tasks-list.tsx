@@ -1,8 +1,8 @@
+import { Task } from "@/types";
 import TaskCard from "./tasks-card";
-import { SubjectWithTasks } from "@/types";
 
 type TasksListProps = {
-    data: SubjectWithTasks[];
+    data: Task[];
 }
 
 
@@ -10,19 +10,15 @@ const TasksList = ({data}: TasksListProps ) => {
     return (
         <section className="mt-6 flex w-full flex-col gap-10">
             {data.length > 0 ? (
-                data.map((subject) => (
-                    <div key={subject.slug} className="w-auto">
-                        <h2 className="subject-title">{subject.name}</h2>
-                            <div className="grid w-full grid-cols-2 gap-4 sm:grid-cols-3 md:gap-4 lg:grid-cols-4 xl:grid-cols-6">
-                                {subject.tasks.map((task) => (
-                                <TaskCard key={task.slug} task={task} />
-                                    ))}
-                            </div>
-                    </div>
-        ))
-      ) : (
-        <p>No subjects found</p>
-      )}
+                <div className="grid w-full grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
+                    {data.map((task) => (
+                        <TaskCard key={task.id} task={task}/>
+                    ))}
+                </div>
+            ) : (
+                <p>No exercises found</p>
+            )}
+               
     </section>
     )
 }
