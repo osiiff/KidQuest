@@ -10,7 +10,7 @@ const SubscriptionCard = () => {
                     <CardDescription className="text-mint text-xl">Start learning with fun tasks and rewards.</CardDescription>
                 </CardHeader>
                 <CardContent className="w-full flex-center">
-                    <Link href='/' className="btn-primary pastel-mint text-teal-600">$5.00/mo</Link>
+                    <Link href='/payment-method' className="btn-primary pastel-mint text-teal-600">$5.00/mo</Link>
                 </CardContent>
             </Card>
             <Card className="border-rounded border-2 flex justify-center flex-col h-auto p-6 gap-3 bg-white w-2xs">
@@ -19,7 +19,7 @@ const SubscriptionCard = () => {
                     <CardDescription className="text-mint text-xl">Build a steady learning habit.</CardDescription>
                 </CardHeader>
                 <CardContent className="w-full flex-center">
-                    <Link href='/' className="btn-primary pastel-mint text-teal-600">$4.00/mo</Link>
+                    <Link href='/payment-method' className="btn-primary pastel-mint text-teal-600">$4.00/mo</Link>
                 </CardContent>
             </Card>
             <Card className="border-rounded border-2 flex justify-end flex-col h-auto p-6 gap-3 bg-white w-2xs">
@@ -28,7 +28,7 @@ const SubscriptionCard = () => {
                     <CardDescription className="text-pink text-xl">Best value for long-term learning.</CardDescription>
                 </CardHeader>
                 <CardContent className="w-full flex-center">
-                    <Link href='/' className="btn-primary pastel-pink text-pink-500">$45.00/year</Link>
+                    <Link href='/payment-method' className="btn-primary pastel-pink text-pink-500">$45.00/year</Link>
                 </CardContent>
             </Card>
         </div>

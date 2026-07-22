@@ -30,7 +30,10 @@ const UserButton = async () => {
 
 
     return (
-        <div>
+        <div className="flex gap-3">
+            <Link href='/subscription' className="btn-primary pastel-pink text-pink-600">
+                    KidQuest <Plus className="w-4 h-4"/>
+            </Link>
             <DropdownMenu>
                 <DropdownMenuTrigger className="flex items-center">
                     <button className="btn-primary rounded-full">

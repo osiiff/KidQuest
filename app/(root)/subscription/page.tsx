@@ -1,5 +1,10 @@
 import { Star } from "lucide-react";
 import SubscriptionCard from "./subscription-card";
+import { Metadata } from "next";
+
+export const metadata:Metadata = {
+    title: 'Select Your Plan'
+}
 
 const SubscriptionPage = () => {
     return (
