@@ -1,6 +1,7 @@
 import { Star } from "lucide-react";
 import SubscriptionCard from "./subscription-card";
 import { Metadata } from "next";
+import CheckoutSteps from "@/components/shared/checkout-steps";
 
 export const metadata:Metadata = {
     title: 'Select Your Plan'
@@ -8,6 +9,8 @@ export const metadata:Metadata = {
 
 const SubscriptionPage = () => {
     return (
+        <>
+            <CheckoutSteps current={0} />
         <div className="w-full my-4 border-rounded border-b-blue-200 border-2 bg-violet-100 p-6">
             <div className="flex justify-center">
                 <div className="badge gap-2">
@@ -24,6 +27,7 @@ const SubscriptionPage = () => {
             </div>
             <SubscriptionCard/>
         </div>
+        </>
     );
 }
 
