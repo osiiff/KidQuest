@@ -93,7 +93,9 @@ export async function updateUserPaymentMethod(data: z.infer<typeof paymentMethod
 
         await prisma.user.update({
             where: {id: currentUser.id},
-            data: paymentMethod.type,
+            data: {
+                paymentMethod: paymentMethod.type
+            },
         });
 
         return {
