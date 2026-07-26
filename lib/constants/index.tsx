@@ -16,3 +16,5 @@ export const signUpDefoltValues = {
 export const PAYMENT_METHODS =process.env.PAYMENT_METHODS ? process.env.PAYMENT_METHODS.split(', ') : ['PayPal', 'Stripe'];
 
 export const DEFAULT_PAYMENT_METHOD = process.env.DEFAULT_PAYMENT_METHOD || 'PayPal';
+
+export const SUBSCRIPTIONS = process.env.SUBSCRIPTIONS ? process.env.SUBSCRIPTIONS.split(', ') : ["MONTHLY", "THREE_MONTHS", "YEARLY"];

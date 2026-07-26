@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { PAYMENT_METHODS } from './constants';
+import { PAYMENT_METHODS, SUBSCRIPTIONS } from './constants';
 
 export const insertTasksSchema = z.object({
     title: z.string().min(3, 'Title must be at least 3 characters'),
@@ -38,4 +38,14 @@ export const paymentMethodSchema = z.object({
 }).refine((data) => PAYMENT_METHODS.includes(data.type), {
     path: ['type'],
     message: 'Invalid payment method',
+})
+
+export const subscriptionSchema = z.object({
+    plan: z.string().refine((data) => SUBSCRIPTIONS.includes(data), {
+        message: 'Invalid subscription',
+    }),
+    paymentMethod: z.string().refine((data) => PAYMENT_METHODS.includes(data), {
+        message: 'Invalid payment method',
+    }),
+    autoRenew: z.boolean(),
 })

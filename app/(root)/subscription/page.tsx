@@ -10,8 +10,8 @@ export const metadata:Metadata = {
 const SubscriptionPage = () => {
     return (
         <>
-            <CheckoutSteps current={0} />
-        <div className="w-full my-4 border-rounded border-b-blue-200 border-2 bg-violet-100 p-6">
+        <CheckoutSteps current={0} />
+        <div className="w-full my-4 border-rounded border-purple-200 border-2 bg-violet-100 p-6">
             <div className="flex justify-center">
                 <div className="badge gap-2">
                     <Star/> Simple, fair and maid for kids
