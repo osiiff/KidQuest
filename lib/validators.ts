@@ -1,5 +1,6 @@
 import { z } from 'zod';
-import { PAYMENT_METHODS, SUBSCRIPTIONS } from './constants';
+import { PAYMENT_METHODS } from './constants';
+import { SubscriptionPlan } from './generated/prisma/enums';
 
 export const insertTasksSchema = z.object({
     title: z.string().min(3, 'Title must be at least 3 characters'),
@@ -41,9 +42,7 @@ export const paymentMethodSchema = z.object({
 })
 
 export const subscriptionSchema = z.object({
-    plan: z.string().refine((data) => SUBSCRIPTIONS.includes(data), {
-        message: 'Invalid subscription',
-    }),
+    plan: z.enum(SubscriptionPlan) ,
     paymentMethod: z.string().refine((data) => PAYMENT_METHODS.includes(data), {
         message: 'Invalid payment method',
     }),
