@@ -16,7 +16,10 @@ export async function signWithCredentials(prevState: unknown, formData: FormData
             password: formData.get('password')
         });
 
-        await signIn('credentials', user)
+        await signIn('credentials', {
+            ...user,
+            redirectTo: '/subscription',
+        })
 
         return { success: true, message: 'Signed in successfully!' }
     } catch (error) {

@@ -34,7 +34,7 @@ const PaymentMethodForm = ({preferredPaymentMethod}: {preferredPaymentMethod: st
              toast.error(res.message);
              return;   
             };
-            router.push('/subscription');
+            router.push('/review-subscription');
         })
     }
 
