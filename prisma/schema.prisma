@@ -70,7 +70,7 @@ model User {
   updatedAt      DateTime  @updatedAt
   account        Account[]
   session        Session[]
-  subscribitions Subscription[]
+  subscription   Subscription[]
 }
 
 model Account {

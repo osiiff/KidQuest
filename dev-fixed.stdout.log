@@ -1,0 +1,38 @@
+
+> kids-quest@0.1.0 dev
+> next dev -p 3001
+
+▲ Next.js 16.2.6 (Turbopack)
+- Local:         http://localhost:3001
+- Network:       http://26.49.110.227:3001
+- Environments: .env
+✓ Ready in 557ms
+Creating turbopack project {
+  dir: 'C:\\Users\\User\\Desktop\\KidsQuest\\kids-quest',
+  testMode: true
+}
+
+ GET /sign-in 200 in 880ms (next.js: 332ms, application-code: 549ms)
+ POST /sign-in 200 in 149ms (next.js: 4ms, application-code: 145ms)
+  └─ ƒ signWithCredentials({"message":"","success":false}, {}) in 113ms lib/actions/user.actions.ts
+ POST /sign-in 200 in 28ms (next.js: 4ms, application-code: 24ms)
+  └─ ƒ signWithCredentials({"message":"Invalid email or password","success":false}, {}) in 10ms lib/actions/user.actions.ts
+ POST /sign-in 200 in 22ms (next.js: 3ms, application-code: 19ms)
+  └─ ƒ signWithCredentials({"message":"Invalid email or password","success":false}, {}) in 10ms lib/actions/user.actions.ts
+ GET /sign-up 200 in 87ms (next.js: 40ms, application-code: 47ms)
+ POST /sign-up 200 in 124ms (next.js: 5ms, application-code: 119ms)
+  └─ ƒ signUpUser({"message":"","success":false}, {}) in 107ms lib/actions/user.actions.ts
+ GET /subjects 200 in 382ms (next.js: 108ms, application-code: 274ms)
+ GET / 200 in 677ms (next.js: 110ms, application-code: 567ms)
+ GET / 200 in 202ms (next.js: 5ms, application-code: 197ms)
+ GET / 200 in 196ms (next.js: 4ms, application-code: 192ms)
+ GET /subjects 500 in 1754ms (next.js: 1539ms, application-code: 215ms)
+ GET / 500 in 1835ms (next.js: 1813ms, application-code: 23ms)
+ GET / 500 in 25ms (next.js: 9ms, application-code: 16ms)
+✓ Compiled in 126ms
+ GET / 200 in 1375ms (next.js: 411ms, application-code: 964ms)
+ GET / 200 in 1379ms (next.js: 291ms, application-code: 1088ms)
+ GET /subjects 200 in 1378ms (next.js: 830ms, application-code: 548ms)
+ GET / 200 in 190ms (next.js: 5ms, application-code: 185ms)
+ GET / 200 in 192ms (next.js: 5ms, application-code: 187ms)
+[?25h

@@ -48,3 +48,7 @@ export const subscriptionSchema = z.object({
     }),
     autoRenew: z.boolean(),
 })
+
+export const subscriptionPlanSchema = z.object({
+  plan: z.enum(["MONTHLY", "THREE_MONTHS", "YEARLY"]),
+});

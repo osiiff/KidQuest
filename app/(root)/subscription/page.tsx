@@ -1,6 +1,7 @@
 import { Star } from "lucide-react";
 import { Metadata } from "next";
 import CheckoutSteps from "@/components/shared/checkout-steps";
+import SubscriptionCard from "./subscription-card";
 
 
 export const metadata:Metadata = {
@@ -25,7 +26,7 @@ const SubscriptionPage = () => {
                     Unlock new tasks and fun activities. Pick the plan that fits your child&apos;s journey!
                 </div>
             </div>
-        <SubscriptionPage/>
+        <SubscriptionCard/>
 
         </div>
         </>

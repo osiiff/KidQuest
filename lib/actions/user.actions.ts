@@ -1,6 +1,6 @@
 "use server";
 
-import { paymentMethodSchema, signInFormSchema } from "../validators";
+import { paymentMethodSchema, signInFormSchema, subscriptionPlanSchema } from "../validators";
 import { signUpFormSchema } from "../validators";
 import { auth, signIn, signOut } from "@/auth";
 import { isRedirectError } from "next/dist/client/components/redirect-error";
@@ -8,6 +8,7 @@ import { hashSync } from "bcrypt-ts-edge";
 import { prisma } from "../prisma";
 import { formatError } from "../format-error";
 import z from "zod";
+import { Prisma } from "../generated/prisma/client";
 
 export async function signWithCredentials(prevState: unknown, formData: FormData) {
     try {
@@ -104,6 +105,45 @@ export async function updateUserPaymentMethod(data: z.infer<typeof paymentMethod
         return {
             success: true,
             message: 'User updated successfully',
+        }
+
+    } catch (error) {
+        return {
+            success: false,
+            message: formatError(error)
+        }
+    }
+}
+
+export async function createUserSubscription(data: z.infer<typeof subscriptionPlanSchema>) {
+    try {
+        const session = await auth();
+
+        const currentUser = await prisma.user.findFirst({
+            where: {id: session?.user?.id}
+        });
+
+        if (!currentUser) throw new Error('User not found');
+
+        const subscription = subscriptionPlanSchema.parse(data);
+
+        const subscriptionPrices = {
+            MONTHLY: new Prisma.Decimal("9.99"),
+            THREE_MONTHS: new Prisma.Decimal("24.99"),
+            YEARLY: new Prisma.Decimal("79.99"),
+        };
+
+        await prisma.subscription.create({
+            data: {
+                userId: currentUser.id,
+                plan: subscription.plan,
+                status: 'PENDING',
+                price: subscriptionPrices[subscription.plan],
+            }
+        })
+        return {
+            success: true,
+            message: 'Subscription selected successfully',
         }
 
     } catch (error) {

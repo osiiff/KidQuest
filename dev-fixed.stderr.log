@@ -1,0 +1,872 @@
+[31m[auth][error][0m CallbackRouteError: Read more at https://errors.authjs.dev#callbackrouteerror
+[31m[auth][cause][0m: PrismaClientKnownRequestError: 
+Invalid `__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$prisma$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["prisma"].user.findFirst()` invocation in
+C:\Users\User\Desktop\KidsQuest\kids-quest\.next\dev\server\chunks\ssr\[root-of-the-server]__00yko~8._.js:527:161
+
+  524 },
+  525 async authorize (credentials) {
+  526     if (credentials == null) return null;
+→ 527     const user = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$prisma$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["prisma"].user.findFirst(
+
+    at zr.handleRequestError (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\@prisma\client\runtime\client.js:65:8286)
+    at zr.handleAndLogRequestError (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\@prisma\client\runtime\client.js:65:7581)
+    at zr.request (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\@prisma\client\runtime\client.js:65:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async a (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\@prisma\client\runtime\client.js:75:6862)
+    at async Object.authorize (C:\Users\User\Desktop\KidsQuest\kids-quest\.next\dev\server\chunks\ssr\[root-of-the-server]__00yko~8._.js:527:30)
+    at async Module.callback (C:\Users\User\Desktop\KidsQuest\kids-quest\.next\dev\server\chunks\ssr\node_modules_@auth_core_0~jrzue._.js:4307:39)
+    at async AuthInternal (C:\Users\User\Desktop\KidsQuest\kids-quest\.next\dev\server\chunks\ssr\node_modules_@auth_core_0~jrzue._.js:5162:24)
+    at async Auth (C:\Users\User\Desktop\KidsQuest\kids-quest\.next\dev\server\chunks\ssr\node_modules_@auth_core_0~jrzue._.js:5384:34)
+    at async signIn (C:\Users\User\Desktop\KidsQuest\kids-quest\.next\dev\server\chunks\ssr\[root-of-the-server]__0h71tmq._.js:4162:17)
+    at async signWithCredentials (C:\Users\User\Desktop\KidsQuest\kids-quest\.next\dev\server\chunks\ssr\[root-of-the-server]__00yko~8._.js:662:9)
+    at async executeActionAndPrepareForRender (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\compiled\next-server\app-page-turbo.runtime.dev.js:64:5248)
+    at async C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\compiled\next-server\app-page-turbo.runtime.dev.js:64:1986
+    at async handleAction (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\compiled\next-server\app-page-turbo.runtime.dev.js:62:25386)
+    at async renderToHTMLOrFlightImpl (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\compiled\next-server\app-page-turbo.runtime.dev.js:69:55695)
+    at async doRender (C:\Users\User\Desktop\KidsQuest\kids-quest\.next\dev\server\chunks\ssr\node_modules_next_dist_0.uaw20._.js:4507:28)
+    at async AppPageRouteModule.handleResponse (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\compiled\next-server\app-page-turbo.runtime.dev.js:71:66429)
+    at async handleResponse (C:\Users\User\Desktop\KidsQuest\kids-quest\.next\dev\server\chunks\ssr\node_modules_next_dist_0.uaw20._.js:4818:32)
+    at async Module.handler (C:\Users\User\Desktop\KidsQuest\kids-quest\.next\dev\server\chunks\ssr\node_modules_next_dist_0.uaw20._.js:5224:20)
+    at async DevServer.renderToResponseWithComponentsImpl (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\server\base-server.js:1462:9)
+    at async DevServer.renderPageComponent (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\server\base-server.js:1514:24)
+    at async DevServer.renderToResponseImpl (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\server\base-server.js:1564:32)
+    at async DevServer.pipeImpl (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\server\base-server.js:1044:25)
+    at async NextNodeServer.handleCatchallRenderRequest (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\server\next-server.js:338:17)
+    at async DevServer.handleRequestImpl (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\server\base-server.js:935:17)
+    at async C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\server\dev\next-dev-server.js:394:20
+    at async Span.traceAsyncFn (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\trace\trace.js:164:20)
+    at async DevServer.handleRequest (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\server\dev\next-dev-server.js:390:24)
+    at async invokeRender (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\server\lib\router-server.js:266:21)
+    at async handleRequest (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\server\lib\router-server.js:465:24)
+    at async requestHandlerImpl (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\server\lib\router-server.js:514:13)
+    at async Server.requestListener (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\server\lib\start-server.js:225:13)
+[31m[auth][details][0m: {
+  "provider": "credentials"
+}
+[31m[auth][error][0m CallbackRouteError: Read more at https://errors.authjs.dev#callbackrouteerror
+[31m[auth][cause][0m: PrismaClientKnownRequestError: 
+Invalid `__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$prisma$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["prisma"].user.findFirst()` invocation in
+C:\Users\User\Desktop\KidsQuest\kids-quest\.next\dev\server\chunks\ssr\[root-of-the-server]__00yko~8._.js:527:161
+
+  524 },
+  525 async authorize (credentials) {
+  526     if (credentials == null) return null;
+→ 527     const user = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$prisma$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["prisma"].user.findFirst(
+
+    at zr.handleRequestError (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\@prisma\client\runtime\client.js:65:8286)
+    at zr.handleAndLogRequestError (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\@prisma\client\runtime\client.js:65:7581)
+    at zr.request (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\@prisma\client\runtime\client.js:65:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async a (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\@prisma\client\runtime\client.js:75:6862)
+    at async Object.authorize (C:\Users\User\Desktop\KidsQuest\kids-quest\.next\dev\server\chunks\ssr\[root-of-the-server]__00yko~8._.js:527:30)
+    at async Module.callback (C:\Users\User\Desktop\KidsQuest\kids-quest\.next\dev\server\chunks\ssr\node_modules_@auth_core_0~jrzue._.js:4307:39)
+    at async AuthInternal (C:\Users\User\Desktop\KidsQuest\kids-quest\.next\dev\server\chunks\ssr\node_modules_@auth_core_0~jrzue._.js:5162:24)
+    at async Auth (C:\Users\User\Desktop\KidsQuest\kids-quest\.next\dev\server\chunks\ssr\node_modules_@auth_core_0~jrzue._.js:5384:34)
+    at async signIn (C:\Users\User\Desktop\KidsQuest\kids-quest\.next\dev\server\chunks\ssr\[root-of-the-server]__0h71tmq._.js:4162:17)
+    at async signWithCredentials (C:\Users\User\Desktop\KidsQuest\kids-quest\.next\dev\server\chunks\ssr\[root-of-the-server]__00yko~8._.js:662:9)
+    at async executeActionAndPrepareForRender (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\compiled\next-server\app-page-turbo.runtime.dev.js:64:5248)
+    at async C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\compiled\next-server\app-page-turbo.runtime.dev.js:64:1986
+    at async handleAction (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\compiled\next-server\app-page-turbo.runtime.dev.js:62:25386)
+    at async renderToHTMLOrFlightImpl (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\compiled\next-server\app-page-turbo.runtime.dev.js:69:55695)
+    at async doRender (C:\Users\User\Desktop\KidsQuest\kids-quest\.next\dev\server\chunks\ssr\node_modules_next_dist_0.uaw20._.js:4507:28)
+    at async AppPageRouteModule.handleResponse (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\compiled\next-server\app-page-turbo.runtime.dev.js:71:66429)
+    at async handleResponse (C:\Users\User\Desktop\KidsQuest\kids-quest\.next\dev\server\chunks\ssr\node_modules_next_dist_0.uaw20._.js:4818:32)
+    at async Module.handler (C:\Users\User\Desktop\KidsQuest\kids-quest\.next\dev\server\chunks\ssr\node_modules_next_dist_0.uaw20._.js:5224:20)
+    at async DevServer.renderToResponseWithComponentsImpl (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\server\base-server.js:1462:9)
+    at async DevServer.renderPageComponent (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\server\base-server.js:1514:24)
+    at async DevServer.renderToResponseImpl (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\server\base-server.js:1564:32)
+    at async DevServer.pipeImpl (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\server\base-server.js:1044:25)
+    at async NextNodeServer.handleCatchallRenderRequest (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\server\next-server.js:338:17)
+    at async DevServer.handleRequestImpl (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\server\base-server.js:935:17)
+    at async C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\server\dev\next-dev-server.js:394:20
+    at async Span.traceAsyncFn (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\trace\trace.js:164:20)
+    at async DevServer.handleRequest (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\server\dev\next-dev-server.js:390:24)
+    at async invokeRender (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\server\lib\router-server.js:266:21)
+    at async handleRequest (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\server\lib\router-server.js:465:24)
+    at async requestHandlerImpl (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\server\lib\router-server.js:514:13)
+    at async Server.requestListener (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\server\lib\start-server.js:225:13)
+[31m[auth][details][0m: {
+  "provider": "credentials"
+}
+[31m[auth][error][0m CallbackRouteError: Read more at https://errors.authjs.dev#callbackrouteerror
+[31m[auth][cause][0m: PrismaClientKnownRequestError: 
+Invalid `__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$prisma$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["prisma"].user.findFirst()` invocation in
+C:\Users\User\Desktop\KidsQuest\kids-quest\.next\dev\server\chunks\ssr\[root-of-the-server]__00yko~8._.js:527:161
+
+  524 },
+  525 async authorize (credentials) {
+  526     if (credentials == null) return null;
+→ 527     const user = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$prisma$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["prisma"].user.findFirst(
+
+    at zr.handleRequestError (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\@prisma\client\runtime\client.js:65:8286)
+    at zr.handleAndLogRequestError (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\@prisma\client\runtime\client.js:65:7581)
+    at zr.request (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\@prisma\client\runtime\client.js:65:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async a (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\@prisma\client\runtime\client.js:75:6862)
+    at async Object.authorize (C:\Users\User\Desktop\KidsQuest\kids-quest\.next\dev\server\chunks\ssr\[root-of-the-server]__00yko~8._.js:527:30)
+    at async Module.callback (C:\Users\User\Desktop\KidsQuest\kids-quest\.next\dev\server\chunks\ssr\node_modules_@auth_core_0~jrzue._.js:4307:39)
+    at async AuthInternal (C:\Users\User\Desktop\KidsQuest\kids-quest\.next\dev\server\chunks\ssr\node_modules_@auth_core_0~jrzue._.js:5162:24)
+    at async Auth (C:\Users\User\Desktop\KidsQuest\kids-quest\.next\dev\server\chunks\ssr\node_modules_@auth_core_0~jrzue._.js:5384:34)
+    at async signIn (C:\Users\User\Desktop\KidsQuest\kids-quest\.next\dev\server\chunks\ssr\[root-of-the-server]__0h71tmq._.js:4162:17)
+    at async signWithCredentials (C:\Users\User\Desktop\KidsQuest\kids-quest\.next\dev\server\chunks\ssr\[root-of-the-server]__00yko~8._.js:662:9)
+    at async executeActionAndPrepareForRender (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\compiled\next-server\app-page-turbo.runtime.dev.js:64:5248)
+    at async C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\compiled\next-server\app-page-turbo.runtime.dev.js:64:1986
+    at async handleAction (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\compiled\next-server\app-page-turbo.runtime.dev.js:62:25386)
+    at async renderToHTMLOrFlightImpl (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\compiled\next-server\app-page-turbo.runtime.dev.js:69:55695)
+    at async doRender (C:\Users\User\Desktop\KidsQuest\kids-quest\.next\dev\server\chunks\ssr\node_modules_next_dist_0.uaw20._.js:4507:28)
+    at async AppPageRouteModule.handleResponse (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\compiled\next-server\app-page-turbo.runtime.dev.js:71:66429)
+    at async handleResponse (C:\Users\User\Desktop\KidsQuest\kids-quest\.next\dev\server\chunks\ssr\node_modules_next_dist_0.uaw20._.js:4818:32)
+    at async Module.handler (C:\Users\User\Desktop\KidsQuest\kids-quest\.next\dev\server\chunks\ssr\node_modules_next_dist_0.uaw20._.js:5224:20)
+    at async DevServer.renderToResponseWithComponentsImpl (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\server\base-server.js:1462:9)
+    at async DevServer.renderPageComponent (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\server\base-server.js:1514:24)
+    at async DevServer.renderToResponseImpl (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\server\base-server.js:1564:32)
+    at async DevServer.pipeImpl (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\server\base-server.js:1044:25)
+    at async NextNodeServer.handleCatchallRenderRequest (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\server\next-server.js:338:17)
+    at async DevServer.handleRequestImpl (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\server\base-server.js:935:17)
+    at async C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\server\dev\next-dev-server.js:394:20
+    at async Span.traceAsyncFn (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\trace\trace.js:164:20)
+    at async DevServer.handleRequest (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\server\dev\next-dev-server.js:390:24)
+    at async invokeRender (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\server\lib\router-server.js:266:21)
+    at async handleRequest (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\server\lib\router-server.js:465:24)
+    at async requestHandlerImpl (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\server\lib\router-server.js:514:13)
+    at async Server.requestListener (C:\Users\User\Desktop\KidsQuest\kids-quest\node_modules\next\dist\server\lib\start-server.js:225:13)
+[31m[auth][details][0m: {
+  "provider": "credentials"
+}
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+⨯ Error [PrismaClientKnownRequestError]: 
+Invalid `{imported module ./lib/prisma.ts}["prisma"].subject.findMany()` invocation in
+C:\Users\User\Desktop\KidsQuest\kids-quest\.next\dev\server\chunks\ssr\_0ucnggw._.js:29:156
+
+  26 ;
+  27 ;
+  28 async function getLatestSubjects() {
+→ 29     const subjects = await {imported module ./lib/prisma.ts}["prisma"].subject.findMany(
+
+    at <unknown> (lib\actions\subject.action.ts:7:43)
+    at async getLatestSubjects (lib\actions\subject.action.ts:7:22)
+    at async SubjectsPage (app\(root)\subjects\page.tsx:9:26)
+   5 |
+   6 | export async function getLatestSubjects() {
+>  7 |     const subjects = await prisma.subject.findMany({
+     |                                           ^
+   8 |         include: {
+   9 |             tasks: true,
+  10 |         }, {
+  code: 'EACCES',
+  meta: { modelName: 'Subject' },
+  clientVersion: '7.8.0',
+  digest: '1590266438'
+}
+[browser] Image with src "/loader.gif" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[browser] Uncaught PrismaClientKnownRequestError: 
+Invalid `__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$prisma$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["prisma"].subject.findMany()` invocation in
+C:\Users\User\Desktop\KidsQuest\kids-quest\.next\dev\server\chunks\ssr\_0ucnggw._.js:29:156
+
+  26 ;
+  27 ;
+  28 async function getLatestSubjects() {
+→ 29     const subjects = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$prisma$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["prisma"].subject.findMany(
+
+    at getLatestSubjects (lib\actions\subject.action.ts:7:22)
+    at SubjectsPage (app\(root)\subjects\page.tsx:9:26)
+   5 |
+   6 | export async function getLatestSubjects() {
+>  7 |     const subjects = await prisma.subject.findMany({
+     |                      ^
+   8 |         include: {
+   9 |             tasks: true,
+  10 |         },
+⨯ Error [PrismaClientKnownRequestError]: 
+Invalid `{imported module ./lib/prisma.ts}["prisma"].subject.findMany()` invocation in
+C:\Users\User\Desktop\KidsQuest\kids-quest\.next\dev\server\chunks\ssr\_0ucnggw._.js:29:156
+
+  26 ;
+  27 ;
+  28 async function getLatestSubjects() {
+→ 29     const subjects = await {imported module ./lib/prisma.ts}["prisma"].subject.findMany(
+
+    at <unknown> (lib\actions\subject.action.ts:7:43)
+    at async getLatestSubjects (lib\actions\subject.action.ts:7:22)
+    at async HomePage (app\(root)\page.tsx:8:20)
+   5 |
+   6 | export async function getLatestSubjects() {
+>  7 |     const subjects = await prisma.subject.findMany({
+     |                                           ^
+   8 |         include: {
+   9 |             tasks: true,
+  10 |         }, {
+  code: 'EACCES',
+  meta: { modelName: 'Subject' },
+  clientVersion: '7.8.0',
+  digest: '274148882'
+}
+⨯ Error [PrismaClientKnownRequestError]: 
+Invalid `{imported module ./lib/prisma.ts}["prisma"].subject.findMany()` invocation in
+C:\Users\User\Desktop\KidsQuest\kids-quest\.next\dev\server\chunks\ssr\_0ucnggw._.js:29:156
+
+  26 ;
+  27 ;
+  28 async function getLatestSubjects() {
+→ 29     const subjects = await {imported module ./lib/prisma.ts}["prisma"].subject.findMany(
+
+    at <unknown> (lib\actions\subject.action.ts:7:43)
+    at async getLatestSubjects (lib\actions\subject.action.ts:7:22)
+    at async HomePage (app\(root)\page.tsx:8:20)
+   5 |
+   6 | export async function getLatestSubjects() {
+>  7 |     const subjects = await prisma.subject.findMany({
+     |                                           ^
+   8 |         include: {
+   9 |             tasks: true,
+  10 |         }, {
+  code: 'EACCES',
+  meta: { modelName: 'Subject' },
+  clientVersion: '7.8.0',
+  digest: '274148882'
+}
+[browser] Uncaught PrismaClientKnownRequestError: 
+Invalid `__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$prisma$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["prisma"].subject.findMany()` invocation in
+C:\Users\User\Desktop\KidsQuest\kids-quest\.next\dev\server\chunks\ssr\_0ucnggw._.js:29:156
+
+  26 ;
+  27 ;
+  28 async function getLatestSubjects() {
+→ 29     const subjects = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$prisma$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["prisma"].subject.findMany(
+
+    at getLatestSubjects (lib\actions\subject.action.ts:7:22)
+    at HomePage (app\(root)\page.tsx:8:20)
+   5 |
+   6 | export async function getLatestSubjects() {
+>  7 |     const subjects = await prisma.subject.findMany({
+     |                      ^
+   8 |         include: {
+   9 |             tasks: true,
+  10 |         },
+[browser] Uncaught PrismaClientKnownRequestError: 
+Invalid `__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$prisma$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["prisma"].subject.findMany()` invocation in
+C:\Users\User\Desktop\KidsQuest\kids-quest\.next\dev\server\chunks\ssr\_0ucnggw._.js:29:156
+
+  26 ;
+  27 ;
+  28 async function getLatestSubjects() {
+→ 29     const subjects = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$prisma$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["prisma"].subject.findMany(
+
+    at getLatestSubjects (lib\actions\subject.action.ts:7:22)
+    at HomePage (app\(root)\page.tsx:8:20)
+   5 |
+   6 | export async function getLatestSubjects() {
+>  7 |     const subjects = await prisma.subject.findMany({
+     |                      ^
+   8 |         include: {
+   9 |             tasks: true,
+  10 |         },
+⨯ Error [PrismaClientKnownRequestError]: 
+Invalid `{imported module ./lib/prisma.ts}["prisma"].subject.findMany()` invocation in
+C:\Users\User\Desktop\KidsQuest\kids-quest\.next\dev\server\chunks\ssr\_0ucnggw._.js:29:156
+
+  26 ;
+  27 ;
+  28 async function getLatestSubjects() {
+→ 29     const subjects = await {imported module ./lib/prisma.ts}["prisma"].subject.findMany(
+
+    at <unknown> (lib\actions\subject.action.ts:7:43)
+    at async getLatestSubjects (lib\actions\subject.action.ts:7:22)
+    at async HomePage (app\(root)\page.tsx:8:20)
+   5 |
+   6 | export async function getLatestSubjects() {
+>  7 |     const subjects = await prisma.subject.findMany({
+     |                                           ^
+   8 |         include: {
+   9 |             tasks: true,
+  10 |         }, {
+  code: 'EACCES',
+  meta: { modelName: 'Subject' },
+  clientVersion: '7.8.0',
+  digest: '274148882'
+}
+⚠ The requested resource "/loader.gif" is an animated image so it will not be optimized. Consider adding the "unoptimized" property to the <Image>.
+[browser] Uncaught PrismaClientKnownRequestError: 
+Invalid `__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$prisma$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["prisma"].subject.findMany()` invocation in
+C:\Users\User\Desktop\KidsQuest\kids-quest\.next\dev\server\chunks\ssr\_0ucnggw._.js:29:156
+
+  26 ;
+  27 ;
+  28 async function getLatestSubjects() {
+→ 29     const subjects = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$prisma$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["prisma"].subject.findMany(
+
+    at getLatestSubjects (lib\actions\subject.action.ts:7:22)
+    at HomePage (app\(root)\page.tsx:8:20)
+   5 |
+   6 | export async function getLatestSubjects() {
+>  7 |     const subjects = await prisma.subject.findMany({
+     |                      ^
+   8 |         include: {
+   9 |             tasks: true,
+  10 |         },
+⨯ ./app/(root)/page.tsx:4:1
+Export getLatestSubjects doesn't exist in target module
+  [90m2 |[0m [36mimport[0m [33mHomePageInfoCards[0m [36mfrom[0m [32m"@/components/shared/homepage-components/home-page-info-cards"[0m;
+  [90m3 |[0m [36mimport[0m [33mSubjectList[0m [36mfrom[0m [32m"@/components/shared/subjects/subject-list"[0m;
+[31m[1m>[0m [90m4 |[0m [36mimport[0m { getLatestSubjects } [36mfrom[0m [32m"@/lib/actions/subject.action"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m5 |[0m
+  [90m6 |[0m [36mconst[0m [33mHomePage[0m = [36masync[0m () => {
+  [90m7 |[0m
+
+The export getLatestSubjects was not found in module [project]/lib/actions/subject.action.ts [app-rsc] (ecmascript).
+Did you mean to import getTaskBySlug?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+
+⨯ ./app/(root)/subjects/page.tsx:4:1
+Export getLatestSubjects doesn't exist in target module
+  [90m2 |[0m [36mimport[0m [33mSubjectsSlidebar[0m [36mfrom[0m [32m"@/components/shared/subjects/subjects-sidebar"[0m;
+  [90m3 |[0m [36mimport[0m [33mTasksList[0m [36mfrom[0m [32m"@/components/shared/subjects/tasks-list"[0m;
+[31m[1m>[0m [90m4 |[0m [36mimport[0m { getLatestSubjects } [36mfrom[0m [32m"@/lib/actions/subject.action"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m5 |[0m
+  [90m6 |[0m
+  [90m7 |[0m
+
+The export getLatestSubjects was not found in module [project]/lib/actions/subject.action.ts [app-rsc] (ecmascript).
+Did you mean to import getTaskBySlug?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+
+[browser] ./app/(root)/subjects/page.tsx:4:1
+Export getLatestSubjects doesn't exist in target module
+  2 | import SubjectsSlidebar from "@/components/shared/subjects/subjects-sidebar";
+  3 | import TasksList from "@/components/shared/subjects/tasks-list";
+> 4 | import { getLatestSubjects } from "@/lib/actions/subject.action";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 |
+  7 |
+
+The export getLatestSubjects was not found in module [project]/lib/actions/subject.action.ts [app-rsc] (ecmascript).
+Did you mean to import getTaskBySlug?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. 
+[browser] ./app/(root)/page.tsx:4:1
+Export getLatestSubjects doesn't exist in target module
+  2 | import HomePageInfoCards from "@/components/shared/homepage-components/home-page-info-cards";
+  3 | import SubjectList from "@/components/shared/subjects/subject-list";
+> 4 | import { getLatestSubjects } from "@/lib/actions/subject.action";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const HomePage = async () => {
+  7 |
+
+The export getLatestSubjects was not found in module [project]/lib/actions/subject.action.ts [app-rsc] (ecmascript).
+Did you mean to import getTaskBySlug?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. 
+[browser] ./app/(root)/subjects/page.tsx:4:1
+Export getLatestSubjects doesn't exist in target module
+  2 | import SubjectsSlidebar from "@/components/shared/subjects/subjects-sidebar";
+  3 | import TasksList from "@/components/shared/subjects/tasks-list";
+> 4 | import { getLatestSubjects } from "@/lib/actions/subject.action";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 |
+  7 |
+
+The export getLatestSubjects was not found in module [project]/lib/actions/subject.action.ts [app-rsc] (ecmascript).
+Did you mean to import getTaskBySlug?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. 
+[browser] ./app/(root)/page.tsx:4:1
+Export getLatestSubjects doesn't exist in target module
+  2 | import HomePageInfoCards from "@/components/shared/homepage-components/home-page-info-cards";
+  3 | import SubjectList from "@/components/shared/subjects/subject-list";
+> 4 | import { getLatestSubjects } from "@/lib/actions/subject.action";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const HomePage = async () => {
+  7 |
+
+The export getLatestSubjects was not found in module [project]/lib/actions/subject.action.ts [app-rsc] (ecmascript).
+Did you mean to import getTaskBySlug?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. 
+[browser] ./app/(root)/subjects/page.tsx:4:1
+Export getLatestSubjects doesn't exist in target module
+  2 | import SubjectsSlidebar from "@/components/shared/subjects/subjects-sidebar";
+  3 | import TasksList from "@/components/shared/subjects/tasks-list";
+> 4 | import { getLatestSubjects } from "@/lib/actions/subject.action";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 |
+  7 |
+
+The export getLatestSubjects was not found in module [project]/lib/actions/subject.action.ts [app-rsc] (ecmascript).
+Did you mean to import getTaskBySlug?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. 
+[browser] ./app/(root)/page.tsx:4:1
+Export getLatestSubjects doesn't exist in target module
+  2 | import HomePageInfoCards from "@/components/shared/homepage-components/home-page-info-cards";
+  3 | import SubjectList from "@/components/shared/subjects/subject-list";
+> 4 | import { getLatestSubjects } from "@/lib/actions/subject.action";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const HomePage = async () => {
+  7 |
+
+The export getLatestSubjects was not found in module [project]/lib/actions/subject.action.ts [app-rsc] (ecmascript).
+Did you mean to import getTaskBySlug?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. 
+⨯ ./app/(root)/page.tsx:4:1
+Export getLatestSubjects doesn't exist in target module
+  [90m2 |[0m [36mimport[0m [33mHomePageInfoCards[0m [36mfrom[0m [32m"@/components/shared/homepage-components/home-page-info-cards"[0m;
+  [90m3 |[0m [36mimport[0m [33mSubjectList[0m [36mfrom[0m [32m"@/components/shared/subjects/subject-list"[0m;
+[31m[1m>[0m [90m4 |[0m [36mimport[0m { getLatestSubjects } [36mfrom[0m [32m"@/lib/actions/subject.action"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m5 |[0m
+  [90m6 |[0m [36mconst[0m [33mHomePage[0m = [36masync[0m () => {
+  [90m7 |[0m
+
+The export getLatestSubjects was not found in module [project]/lib/actions/subject.action.ts [app-rsc] (ecmascript).
+Did you mean to import getTaskBySlug?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+
+[browser] Uncaught Error: ./app/(root)/subjects/page.tsx:4:1
+Export getLatestSubjects doesn't exist in target module
+  2 | import SubjectsSlidebar from "@/components/shared/subjects/subjects-sidebar";
+  3 | import TasksList from "@/components/shared/subjects/tasks-list";
+> 4 | import { getLatestSubjects } from "@/lib/actions/subject.action";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 |
+  7 |
+
+The export getLatestSubjects was not found in module [project]/lib/actions/subject.action.ts [app-rsc] (ecmascript).
+Did you mean to import getTaskBySlug?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+
+    at <unknown> (Error: ./app/(root)/subjects/page.tsx:4:1)
+    at <unknown> (Error: (./app/(root)/subjects/page.tsx:4:1)
+[browser] ./app/(root)/subjects/page.tsx:4:1
+Export getLatestSubjects doesn't exist in target module
+  2 | import SubjectsSlidebar from "@/components/shared/subjects/subjects-sidebar";
+  3 | import TasksList from "@/components/shared/subjects/tasks-list";
+> 4 | import { getLatestSubjects } from "@/lib/actions/subject.action";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 |
+  7 |
+
+The export getLatestSubjects was not found in module [project]/lib/actions/subject.action.ts [app-rsc] (ecmascript).
+Did you mean to import getTaskBySlug?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. 
+[browser] ./app/(root)/page.tsx:4:1
+Export getLatestSubjects doesn't exist in target module
+  2 | import HomePageInfoCards from "@/components/shared/homepage-components/home-page-info-cards";
+  3 | import SubjectList from "@/components/shared/subjects/subject-list";
+> 4 | import { getLatestSubjects } from "@/lib/actions/subject.action";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const HomePage = async () => {
+  7 |
+
+The export getLatestSubjects was not found in module [project]/lib/actions/subject.action.ts [app-rsc] (ecmascript).
+Did you mean to import getTaskBySlug?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. 
+[browser] ./app/(root)/subjects/page.tsx:4:1
+Export getLatestSubjects doesn't exist in target module
+  2 | import SubjectsSlidebar from "@/components/shared/subjects/subjects-sidebar";
+  3 | import TasksList from "@/components/shared/subjects/tasks-list";
+> 4 | import { getLatestSubjects } from "@/lib/actions/subject.action";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 |
+  7 |
+
+The export getLatestSubjects was not found in module [project]/lib/actions/subject.action.ts [app-rsc] (ecmascript).
+Did you mean to import getTaskBySlug?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. 
+[browser] ./app/(root)/page.tsx:4:1
+Export getLatestSubjects doesn't exist in target module
+  2 | import HomePageInfoCards from "@/components/shared/homepage-components/home-page-info-cards";
+  3 | import SubjectList from "@/components/shared/subjects/subject-list";
+> 4 | import { getLatestSubjects } from "@/lib/actions/subject.action";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const HomePage = async () => {
+  7 |
+
+The export getLatestSubjects was not found in module [project]/lib/actions/subject.action.ts [app-rsc] (ecmascript).
+Did you mean to import getTaskBySlug?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. 
+[browser] ./app/(root)/subjects/page.tsx:4:1
+Export getLatestSubjects doesn't exist in target module
+  2 | import SubjectsSlidebar from "@/components/shared/subjects/subjects-sidebar";
+  3 | import TasksList from "@/components/shared/subjects/tasks-list";
+> 4 | import { getLatestSubjects } from "@/lib/actions/subject.action";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 |
+  7 |
+
+The export getLatestSubjects was not found in module [project]/lib/actions/subject.action.ts [app-rsc] (ecmascript).
+Did you mean to import getTaskBySlug?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. 
+[browser] ./app/(root)/page.tsx:4:1
+Export getLatestSubjects doesn't exist in target module
+  2 | import HomePageInfoCards from "@/components/shared/homepage-components/home-page-info-cards";
+  3 | import SubjectList from "@/components/shared/subjects/subject-list";
+> 4 | import { getLatestSubjects } from "@/lib/actions/subject.action";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const HomePage = async () => {
+  7 |
+
+The export getLatestSubjects was not found in module [project]/lib/actions/subject.action.ts [app-rsc] (ecmascript).
+Did you mean to import getTaskBySlug?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. 
+[browser] ./app/(root)/subjects/page.tsx:4:1
+Export getLatestSubjects doesn't exist in target module
+  2 | import SubjectsSlidebar from "@/components/shared/subjects/subjects-sidebar";
+  3 | import TasksList from "@/components/shared/subjects/tasks-list";
+> 4 | import { getLatestSubjects } from "@/lib/actions/subject.action";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 |
+  7 |
+
+The export getLatestSubjects was not found in module [project]/lib/actions/subject.action.ts [app-rsc] (ecmascript).
+Did you mean to import getTaskBySlug?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. 
+[browser] ./app/(root)/page.tsx:4:1
+Export getLatestSubjects doesn't exist in target module
+  2 | import HomePageInfoCards from "@/components/shared/homepage-components/home-page-info-cards";
+  3 | import SubjectList from "@/components/shared/subjects/subject-list";
+> 4 | import { getLatestSubjects } from "@/lib/actions/subject.action";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const HomePage = async () => {
+  7 |
+
+The export getLatestSubjects was not found in module [project]/lib/actions/subject.action.ts [app-rsc] (ecmascript).
+Did you mean to import getTaskBySlug?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. 
+[browser] ./app/(root)/subjects/page.tsx:4:1
+Export getLatestSubjects doesn't exist in target module
+  2 | import SubjectsSlidebar from "@/components/shared/subjects/subjects-sidebar";
+  3 | import TasksList from "@/components/shared/subjects/tasks-list";
+> 4 | import { getLatestSubjects } from "@/lib/actions/subject.action";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 |
+  7 |
+
+The export getLatestSubjects was not found in module [project]/lib/actions/subject.action.ts [app-rsc] (ecmascript).
+Did you mean to import getTaskBySlug?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. 
+[browser] ./app/(root)/page.tsx:4:1
+Export getLatestSubjects doesn't exist in target module
+  2 | import HomePageInfoCards from "@/components/shared/homepage-components/home-page-info-cards";
+  3 | import SubjectList from "@/components/shared/subjects/subject-list";
+> 4 | import { getLatestSubjects } from "@/lib/actions/subject.action";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const HomePage = async () => {
+  7 |
+
+The export getLatestSubjects was not found in module [project]/lib/actions/subject.action.ts [app-rsc] (ecmascript).
+Did you mean to import getTaskBySlug?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. 
+[browser] Uncaught Error: ./app/(root)/subjects/page.tsx:4:1
+Export getLatestSubjects doesn't exist in target module
+  2 | import SubjectsSlidebar from "@/components/shared/subjects/subjects-sidebar";
+  3 | import TasksList from "@/components/shared/subjects/tasks-list";
+> 4 | import { getLatestSubjects } from "@/lib/actions/subject.action";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 |
+  7 |
+
+The export getLatestSubjects was not found in module [project]/lib/actions/subject.action.ts [app-rsc] (ecmascript).
+Did you mean to import getTaskBySlug?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+
+    at <unknown> (Error: ./app/(root)/subjects/page.tsx:4:1)
+    at <unknown> (Error: (./app/(root)/subjects/page.tsx:4:1)
+[browser] ./app/(root)/subjects/page.tsx:4:1
+Export getLatestSubjects doesn't exist in target module
+  2 | import SubjectsSlidebar from "@/components/shared/subjects/subjects-sidebar";
+  3 | import TasksList from "@/components/shared/subjects/tasks-list";
+> 4 | import { getLatestSubjects } from "@/lib/actions/subject.action";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 |
+  7 |
+
+The export getLatestSubjects was not found in module [project]/lib/actions/subject.action.ts [app-rsc] (ecmascript).
+Did you mean to import getTaskBySlug?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. 
+[browser] ./app/(root)/page.tsx:4:1
+Export getLatestSubjects doesn't exist in target module
+  2 | import HomePageInfoCards from "@/components/shared/homepage-components/home-page-info-cards";
+  3 | import SubjectList from "@/components/shared/subjects/subject-list";
+> 4 | import { getLatestSubjects } from "@/lib/actions/subject.action";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const HomePage = async () => {
+  7 |
+
+The export getLatestSubjects was not found in module [project]/lib/actions/subject.action.ts [app-rsc] (ecmascript).
+Did you mean to import getTaskBySlug?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. 
+[browser] ./app/(root)/subjects/page.tsx:4:1
+Export getLatestSubjects doesn't exist in target module
+  2 | import SubjectsSlidebar from "@/components/shared/subjects/subjects-sidebar";
+  3 | import TasksList from "@/components/shared/subjects/tasks-list";
+> 4 | import { getLatestSubjects } from "@/lib/actions/subject.action";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 |
+  7 |
+
+The export getLatestSubjects was not found in module [project]/lib/actions/subject.action.ts [app-rsc] (ecmascript).
+Did you mean to import getTaskBySlug?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. 
+[browser] ./app/(root)/page.tsx:4:1
+Export getLatestSubjects doesn't exist in target module
+  2 | import HomePageInfoCards from "@/components/shared/homepage-components/home-page-info-cards";
+  3 | import SubjectList from "@/components/shared/subjects/subject-list";
+> 4 | import { getLatestSubjects } from "@/lib/actions/subject.action";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const HomePage = async () => {
+  7 |
+
+The export getLatestSubjects was not found in module [project]/lib/actions/subject.action.ts [app-rsc] (ecmascript).
+Did you mean to import getTaskBySlug?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. 
+[browser] Uncaught Error: ./app/(root)/subjects/page.tsx:4:1
+Export getLatestSubjects doesn't exist in target module
+  2 | import SubjectsSlidebar from "@/components/shared/subjects/subjects-sidebar";
+  3 | import TasksList from "@/components/shared/subjects/tasks-list";
+> 4 | import { getLatestSubjects } from "@/lib/actions/subject.action";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 |
+  7 |
+
+The export getLatestSubjects was not found in module [project]/lib/actions/subject.action.ts [app-rsc] (ecmascript).
+Did you mean to import getTaskBySlug?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+
+    at <unknown> (Error: ./app/(root)/subjects/page.tsx:4:1)
+    at <unknown> (Error: (./app/(root)/subjects/page.tsx:4:1)
+⨯ Error [PrismaClientKnownRequestError]: 
+Invalid `{imported module ./lib/prisma.ts}["prisma"].subject.findMany()` invocation in
+C:\Users\User\Desktop\KidsQuest\kids-quest\.next\dev\server\chunks\ssr\_036a37w._.js:29:156
+
+  26 ;
+  27 ;
+  28 async function getLatestSubjects() {
+→ 29     const subjects = await {imported module ./lib/prisma.ts}["prisma"].subject.findMany(
+
+    at <unknown> (lib\actions\subject.action.ts:7:43)
+    at async getLatestSubjects (lib\actions\subject.action.ts:7:22)
+    at async HomePage (app\(root)\page.tsx:8:20)
+   5 |
+   6 | export async function getLatestSubjects() {
+>  7 |     const subjects = await prisma.subject.findMany({
+     |                                           ^
+   8 |         include: {
+   9 |             tasks: true,
+  10 |         }, {
+  code: 'EACCES',
+  meta: { modelName: 'Subject' },
+  clientVersion: '7.8.0',
+  digest: '1814993642'
+}
+⨯ Error [PrismaClientKnownRequestError]: 
+Invalid `{imported module ./lib/prisma.ts}["prisma"].subject.findMany()` invocation in
+C:\Users\User\Desktop\KidsQuest\kids-quest\.next\dev\server\chunks\ssr\_036a37w._.js:29:156
+
+  26 ;
+  27 ;
+  28 async function getLatestSubjects() {
+→ 29     const subjects = await {imported module ./lib/prisma.ts}["prisma"].subject.findMany(
+
+    at <unknown> (lib\actions\subject.action.ts:7:43)
+    at async getLatestSubjects (lib\actions\subject.action.ts:7:22)
+    at async HomePage (app\(root)\page.tsx:8:20)
+   5 |
+   6 | export async function getLatestSubjects() {
+>  7 |     const subjects = await prisma.subject.findMany({
+     |                                           ^
+   8 |         include: {
+   9 |             tasks: true,
+  10 |         }, {
+  code: 'EACCES',
+  meta: { modelName: 'Subject' },
+  clientVersion: '7.8.0',
+  digest: '1814993642'
+}
+⨯ Error [PrismaClientKnownRequestError]: 
+Invalid `{imported module ./lib/prisma.ts}["prisma"].subject.findMany()` invocation in
+C:\Users\User\Desktop\KidsQuest\kids-quest\.next\dev\server\chunks\ssr\_0ucnggw._.js:29:156
+
+  26 ;
+  27 ;
+  28 async function getLatestSubjects() {
+→ 29     const subjects = await {imported module ./lib/prisma.ts}["prisma"].subject.findMany(
+
+    at <unknown> (lib\actions\subject.action.ts:7:43)
+    at async getLatestSubjects (lib\actions\subject.action.ts:7:22)
+    at async SubjectsPage (app\(root)\subjects\page.tsx:9:26)
+   5 |
+   6 | export async function getLatestSubjects() {
+>  7 |     const subjects = await prisma.subject.findMany({
+     |                                           ^
+   8 |         include: {
+   9 |             tasks: true,
+  10 |         }, {
+  code: 'EACCES',
+  meta: { modelName: 'Subject' },
+  clientVersion: '7.8.0',
+  digest: '1590266438'
+}
+[browser] Uncaught PrismaClientKnownRequestError: 
+Invalid `__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$prisma$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["prisma"].subject.findMany()` invocation in
+C:\Users\User\Desktop\KidsQuest\kids-quest\.next\dev\server\chunks\ssr\_036a37w._.js:29:156
+
+  26 ;
+  27 ;
+  28 async function getLatestSubjects() {
+→ 29     const subjects = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$prisma$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["prisma"].subject.findMany(
+
+    at getLatestSubjects (lib\actions\subject.action.ts:7:22)
+    at HomePage (app\(root)\page.tsx:8:20)
+   5 |
+   6 | export async function getLatestSubjects() {
+>  7 |     const subjects = await prisma.subject.findMany({
+     |                      ^
+   8 |         include: {
+   9 |             tasks: true,
+  10 |         },
+[browser] Uncaught PrismaClientKnownRequestError: 
+Invalid `__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$prisma$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["prisma"].subject.findMany()` invocation in
+C:\Users\User\Desktop\KidsQuest\kids-quest\.next\dev\server\chunks\ssr\_036a37w._.js:29:156
+
+  26 ;
+  27 ;
+  28 async function getLatestSubjects() {
+→ 29     const subjects = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$prisma$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["prisma"].subject.findMany(
+
+    at getLatestSubjects (lib\actions\subject.action.ts:7:22)
+    at HomePage (app\(root)\page.tsx:8:20)
+   5 |
+   6 | export async function getLatestSubjects() {
+>  7 |     const subjects = await prisma.subject.findMany({
+     |                      ^
+   8 |         include: {
+   9 |             tasks: true,
+  10 |         },
+[browser] Uncaught PrismaClientKnownRequestError: 
+Invalid `__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$prisma$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["prisma"].subject.findMany()` invocation in
+C:\Users\User\Desktop\KidsQuest\kids-quest\.next\dev\server\chunks\ssr\_0ucnggw._.js:29:156
+
+  26 ;
+  27 ;
+  28 async function getLatestSubjects() {
+→ 29     const subjects = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$prisma$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["prisma"].subject.findMany(
+
+    at getLatestSubjects (lib\actions\subject.action.ts:7:22)
+    at SubjectsPage (app\(root)\subjects\page.tsx:9:26)
+   5 |
+   6 | export async function getLatestSubjects() {
+>  7 |     const subjects = await prisma.subject.findMany({
+     |                      ^
+   8 |         include: {
+   9 |             tasks: true,
+  10 |         },
+⨯ Error [PrismaClientKnownRequestError]: 
+Invalid `{imported module ./lib/prisma.ts}["prisma"].subject.findMany()` invocation in
+C:\Users\User\Desktop\KidsQuest\kids-quest\.next\dev\server\chunks\ssr\_036a37w._.js:29:156
+
+  26 ;
+  27 ;
+  28 async function getLatestSubjects() {
+→ 29     const subjects = await {imported module ./lib/prisma.ts}["prisma"].subject.findMany(
+
+    at <unknown> (lib\actions\subject.action.ts:7:43)
+    at async getLatestSubjects (lib\actions\subject.action.ts:7:22)
+    at async HomePage (app\(root)\page.tsx:8:20)
+   5 |
+   6 | export async function getLatestSubjects() {
+>  7 |     const subjects = await prisma.subject.findMany({
+     |                                           ^
+   8 |         include: {
+   9 |             tasks: true,
+  10 |         }, {
+  code: 'EACCES',
+  meta: { modelName: 'Subject' },
+  clientVersion: '7.8.0',
+  digest: '1814993642'
+}
+⨯ Error [PrismaClientKnownRequestError]: 
+Invalid `{imported module ./lib/prisma.ts}["prisma"].subject.findMany()` invocation in
+C:\Users\User\Desktop\KidsQuest\kids-quest\.next\dev\server\chunks\ssr\_036a37w._.js:29:156
+
+  26 ;
+  27 ;
+  28 async function getLatestSubjects() {
+→ 29     const subjects = await {imported module ./lib/prisma.ts}["prisma"].subject.findMany(
+
+    at <unknown> (lib\actions\subject.action.ts:7:43)
+    at async getLatestSubjects (lib\actions\subject.action.ts:7:22)
+    at async HomePage (app\(root)\page.tsx:8:20)
+   5 |
+   6 | export async function getLatestSubjects() {
+>  7 |     const subjects = await prisma.subject.findMany({
+     |                                           ^
+   8 |         include: {
+   9 |             tasks: true,
+  10 |         }, {
+  code: 'EACCES',
+  meta: { modelName: 'Subject' },
+  clientVersion: '7.8.0',
+  digest: '1814993642'
+}
+[browser] Uncaught PrismaClientKnownRequestError: 
+Invalid `__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$prisma$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["prisma"].subject.findMany()` invocation in
+C:\Users\User\Desktop\KidsQuest\kids-quest\.next\dev\server\chunks\ssr\_036a37w._.js:29:156
+
+  26 ;
+  27 ;
+  28 async function getLatestSubjects() {
+→ 29     const subjects = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$prisma$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["prisma"].subject.findMany(
+
+    at getLatestSubjects (lib\actions\subject.action.ts:7:22)
+    at HomePage (app\(root)\page.tsx:8:20)
+   5 |
+   6 | export async function getLatestSubjects() {
+>  7 |     const subjects = await prisma.subject.findMany({
+     |                      ^
+   8 |         include: {
+   9 |             tasks: true,
+  10 |         },
+[browser] Uncaught PrismaClientKnownRequestError: 
+Invalid `__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$prisma$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["prisma"].subject.findMany()` invocation in
+C:\Users\User\Desktop\KidsQuest\kids-quest\.next\dev\server\chunks\ssr\_036a37w._.js:29:156
+
+  26 ;
+  27 ;
+  28 async function getLatestSubjects() {
+→ 29     const subjects = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$prisma$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["prisma"].subject.findMany(
+
+    at getLatestSubjects (lib\actions\subject.action.ts:7:22)
+    at HomePage (app\(root)\page.tsx:8:20)
+   5 |
+   6 | export async function getLatestSubjects() {
+>  7 |     const subjects = await prisma.subject.findMany({
+     |                      ^
+   8 |         include: {
+   9 |             tasks: true,
+  10 |         },
