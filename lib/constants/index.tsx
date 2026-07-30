@@ -25,6 +25,7 @@ export const SUBSCRIPTION_PLANS = [
     description: "Great to get started",
     price: 9.99,
     duration: "month",
+    autoRenew: true,
     buttonText: "Choose Monthly",
     features: [
       "Full access to all subjects",
@@ -39,6 +40,7 @@ export const SUBSCRIPTION_PLANS = [
     description: "Save more",
     price: 24.99,
     duration: "3 months",
+    autoRenew: true,
     buttonText: "Choose 3 Months",
     badge: "Most popular",
     features: [
@@ -54,6 +56,7 @@ export const SUBSCRIPTION_PLANS = [
     description: "Best value",
     price: 79.99,
     duration: "year",
+    autoRenew: false,
     buttonText: "Choose Yearly",
     features: [
       "All Monthly benefits",

@@ -51,7 +51,7 @@ const SubscriptionCard = () => {
                                     </div>
                                 ))}
                                 <div className="flex-center m-4">
-                                    <button className='btn-primary pastel-mint text-teal-600' onClick={() => onChoose({
+                                    <button className='btn-primary pastel-mint text-teal-600' disabled={isPending} onClick={() => onChoose({
                                         plan: subscription.value,
                                     })}>
                                    {subscription.buttonText}

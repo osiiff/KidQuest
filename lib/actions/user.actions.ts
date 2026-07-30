@@ -153,3 +153,23 @@ export async function createUserSubscription(data: z.infer<typeof subscriptionPl
         }
     }
 }
+
+export async function getMySubscription() {
+    
+    const session = await auth();
+    const userId = session?.user?.id;
+
+    if(!userId) return undefined;
+
+    const subscription = await prisma.subscription.findFirst({
+        where: {
+            userId,
+            status: "PENDING",
+        },
+            orderBy: {
+                createdAt: "desc",
+        },
+    })
+
+    return subscription ?? undefined;
+}
