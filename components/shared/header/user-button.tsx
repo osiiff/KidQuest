@@ -35,8 +35,8 @@ const UserButton = async () => {
                     KidQuest <Plus className="w-4 h-4"/>
             </Link>
             <DropdownMenu>
-                <DropdownMenuTrigger className="flex items-center" asChild>
-                    <button className="btn-primary rounded-full">
+                <DropdownMenuTrigger asChild>
+                    <button className="flex items-center btn-primary rounded-full" type="button">
                         {firstInitial}
                     </button>
                 </DropdownMenuTrigger>
