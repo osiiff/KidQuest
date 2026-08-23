@@ -1,7 +1,7 @@
 'use client';
 
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { createUserSubscription } from "@/lib/actions/user.actions";
+import { createUserSubscription } from "@/lib/actions/subscription.actions";
 import { SUBSCRIPTION_PLANS } from "@/lib/constants";
 import { subscriptionPlanSchema } from "@/lib/validators";
 import { Check } from "lucide-react";

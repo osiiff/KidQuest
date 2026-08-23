@@ -1,19 +1,21 @@
 import CheckoutSteps from "@/components/shared/checkout-steps";
 import { auth } from "@/auth";
-import { getMySubscription, getUserById } from "@/lib/actions/user.actions";
+import { getUserById } from "@/lib/actions/user.actions";
 import { redirect } from "next/navigation";
 import { Metadata } from "next";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Check, X } from "lucide-react";
 import { SUBSCRIPTION_PLANS } from "@/lib/constants";
 import Link from "next/link";
+import { getMyPendingSubscription } from "@/lib/actions/subscription.actions";
+import { ReviewSubscriptionButton } from "./review-subscription-button";
 
 export const metadata: Metadata = {
   title: "Review",
 };
 
 const ReviewSubscriptionPage = async () => {
-  const chosenSubscription = await getMySubscription();
+  const chosenSubscription = await getMyPendingSubscription();
   const session = await auth();
 
   const userId = session?.user?.id;
@@ -98,9 +100,7 @@ const ReviewSubscriptionPage = async () => {
                         {selectedPlan.autoRenew === true ? <Check className="text-mint"/> : <X className="text-red-700"/>}
                     </div>
                 </div>
-                <button className="btn-primary my-3 w-full">
-                    Continue 
-                </button>
+                <ReviewSubscriptionButton/>
             </CardContent>
         </Card>
       </div>
