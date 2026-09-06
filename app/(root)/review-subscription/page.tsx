@@ -34,6 +34,11 @@ const ReviewSubscriptionPage = async () => {
     redirect("/subscription");
   }
 
+  const paypalClientId = process.env.PAYPAL_CLIENT_ID;
+  if (!paypalClientId) {
+      throw new Error("PAYPAL_CLIENT_ID is not configured");
+  }
+
   return (
     <div>
       <CheckoutSteps current={2} />
@@ -100,7 +105,7 @@ const ReviewSubscriptionPage = async () => {
                         {selectedPlan.autoRenew === true ? <Check className="text-mint"/> : <X className="text-red-700"/>}
                     </div>
                 </div>
-                <ReviewSubscriptionButton/>
+                <ReviewSubscriptionButton paypalClientId={paypalClientId}/>
             </CardContent>
         </Card>
       </div>
