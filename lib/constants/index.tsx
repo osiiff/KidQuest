@@ -66,3 +66,5 @@ export const SUBSCRIPTION_PLANS = [
     ],
   },
 ] as const;
+
+export const PAGE_SIZE = Number(process.env.PAGE_SIZE) || 2;
