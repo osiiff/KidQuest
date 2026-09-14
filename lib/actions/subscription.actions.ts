@@ -7,7 +7,6 @@ import { subscriptionPlanSchema } from "../validators";
 import { Prisma } from "../generated/prisma/client";
 import { formatError } from "../format-error";
 import { paypal } from "../paypal";
-import { PAGE_SIZE } from "../constants";
 
 export async function createUserSubscription(
   data: z.infer<typeof subscriptionPlanSchema>,
@@ -165,28 +164,20 @@ export async function approveSubscriptionPayment(data: { orderId: string }) {
   }
 }
 
-export async function getMySubscriptions({
-  limit = PAGE_SIZE,
-  page,
-}: {
-  limit?: number,
-  page: number
-}) {
+export async function getMySubscriptions() {
   const session = await auth();
     if(!session) throw new Error('User is not authenticated');
 
     const data = await prisma.subscription.findMany({
-        where: {userId: session?.user?.id, },
+        where: {
+          userId: session?.user?.id, 
+          status: {
+            not: "PENDING"
+          } },
         orderBy: {createdAt: 'desc'},
-        take: limit,
-        skip: (page - 1) * limit,
-    })
-    const dataCount = await prisma.subscription.count({
-        where: {userId: session?.user?.id},
     })
 
     return {
-        data,
-        totalPages: Math.ceil(dataCount / limit)
+      data
     }
 }

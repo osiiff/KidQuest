@@ -9,13 +9,9 @@ export const metadata: Metadata = {
     title: 'My Subscriptions'
 }
 
-const SubscriptionsPage = async (props: {searchParams: Promise<{page: string}>}) => {
+const SubscriptionsPage = async () => {
 
-    const {page} = await props.searchParams;
-
-    const subscriptions = await getMySubscriptions({
-        page: Number(page) || 1,
-    })
+    const subscriptions = await getMySubscriptions();
     
     return ( 
         <div className="space-y-2">
