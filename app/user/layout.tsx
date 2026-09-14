@@ -24,7 +24,7 @@ export default function UserLayout({
                 </div>
             </div>
             </div>
-        <main className="wrapper" >{children}</main>
+        <main className="wrapper min-h-96" >{children}</main>
     </div>
    
   );

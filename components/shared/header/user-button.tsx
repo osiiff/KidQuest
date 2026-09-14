@@ -42,18 +42,28 @@ const UserButton = async () => {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent  className="w-56 bg-white" align="end" forceMount>
                     <DropdownMenuLabel>
-                        <div className="hero-text text-primary">
+                        <div className="hero-title text-2xl text-primary">
                             <div className="">
                                 {session.user?.name}
                             </div>
-                            <div className="text-sm">
+                            <div className="font-medium">
                                 {session.user?.email}
                             </div>
                         </div>
                     </DropdownMenuLabel>
                     <DropdownMenuItem>
+                        <Link href='/user/profile' className="w-full hero-title text-2xl">
+                        User Profile
+                        </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem>
+                        <Link href='/user/subscriptions' className="w-full hero-title text-2xl">
+                        Subscriptions History
+                        </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem>
                         <form action={signOutUser}>
-                            <button className="w-full nav-link flex pastel-pink">
+                            <button className="w-full hero-title text-2xl text-pink-500">
                                 Sign Out
                             </button>
                         </form>
