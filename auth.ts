@@ -77,7 +77,7 @@ export const config = {
       if (trigger === "update" && session?.user?.name) {
         token.name = session.user.name;
       }
-
+      
       return token;
     },
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

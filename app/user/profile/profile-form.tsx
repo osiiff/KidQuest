@@ -1,12 +1,13 @@
 'use client';
 
-import { Button } from "@/components/ui/button";
 import { Field, FieldError, FieldGroup, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+import { updateProfile } from "@/lib/actions/user.actions";
 import { updateProfileSchema } from "@/lib/validators";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useSession } from "next-auth/react";
 import { Controller, useForm } from "react-hook-form";
+import { toast } from "sonner";
 import z from "zod";
 
 const ProfileForm = () => {
@@ -19,9 +20,26 @@ const ProfileForm = () => {
         }
     })
 
-    const onSubmit = () => {
-        return;
+    const onSubmit = async (values: z.infer<typeof updateProfileSchema>) => {
+    const res = await updateProfile(values);
+    if (!res.success) {
+      toast.error(res.message);
     }
+
+    const newSession = {
+        ...session,
+        user: {
+            ...session?.user,
+            name: values.name
+        }
+    }
+    await update(newSession);
+
+    if(res.success) {
+      toast.success(res.message);
+    }
+
+  };
 
     return ( 
             <form className="flex flex-col gap-5" onSubmit={form.handleSubmit(onSubmit)}>
