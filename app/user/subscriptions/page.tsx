@@ -20,8 +20,8 @@ const SubscriptionsPage = async (props: {searchParams: Promise<{page: string}>})
     return ( 
         <div className="space-y-2">
             <h2 className="hero-title text-4xl py-5">Subscriptions</h2>
-            <div className="overflow-x-auto">
-                <Table>
+            <div className="overflow-x-auto py-5">
+                <Table >
                     <TableHeader>
                         <TableRow className="hero-text">
                             <TableHead>ID</TableHead>

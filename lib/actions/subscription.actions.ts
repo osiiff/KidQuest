@@ -176,7 +176,7 @@ export async function getMySubscriptions({
     if(!session) throw new Error('User is not authenticated');
 
     const data = await prisma.subscription.findMany({
-        where: {userId: session?.user?.id},
+        where: {userId: session?.user?.id, },
         orderBy: {createdAt: 'desc'},
         take: limit,
         skip: (page - 1) * limit,
