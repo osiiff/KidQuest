@@ -2,6 +2,7 @@
 
 import "dotenv/config";
 import { prisma } from "../prisma";
+import { Prisma } from "../generated/prisma/client";
 
 export async function getLatestSubjects() {
     const subjects = await prisma.subject.findMany({
@@ -66,4 +67,86 @@ export async function getTaskByGroup(ageGroup: string) {
 
 
   return tasks;
+}
+
+type SalesDataType = {
+    month: string,
+    totalSales: number
+}[]
+
+
+export async function getDashboardSummary() {
+  
+  const usersCount = await prisma.user.count();
+
+  const activeSubscriptionsCount = await prisma.subscription.count({
+    where: {
+        status: 'ACTIVE'
+    }
+  });
+
+  const subscriptionsCount = await prisma.subscription.count({
+    where: {
+        status: {
+            not: 'PENDING'
+        }
+    }
+  })
+
+  const totalRevenue = await prisma.subscription.aggregate({
+    _sum: {
+        price: true
+    }
+  });
+
+  const salesDataRaw = await prisma.$queryRaw<
+    Array<{
+      month: string;
+      totalSales: Prisma.Decimal;
+    }>
+  >`
+    SELECT
+      to_char("createdAt", 'MM/YY') AS "month",
+      SUM("price") AS "totalSales"
+    FROM "Subscription"
+    WHERE "status" <> 'PENDING'
+    GROUP BY to_char("createdAt", 'MM/YY')
+    ORDER BY MIN("createdAt")
+  `;
+
+  const salesData: SalesDataType = salesDataRaw.map((entry) => ({
+    month: entry.month,
+    totalSales: Number(entry.totalSales),
+  }));
+
+
+  const latestSubscriptions = await prisma.subscription.findMany({
+    where: {
+        status: {
+            not: 'PENDING'
+        }
+    },
+    orderBy: {
+        createdAt: 'desc'
+    },
+    include: {
+        user: {
+            select: {
+                name: true,
+                email: true
+            }
+        }
+    },
+    take: 6,
+  })
+
+
+  return {
+    usersCount,
+    activeSubscriptionsCount,
+    subscriptionsCount,
+    totalRevenue: Number(totalRevenue._sum.price ?? 0),
+    latestSubscriptions ,
+    salesData
+  }
 }
