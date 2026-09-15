@@ -61,6 +61,13 @@ const UserButton = async () => {
                         Subscriptions History
                         </Link>
                     </DropdownMenuItem>
+                    {session?.user?.role === 'admin' && (
+                        <DropdownMenuItem>
+                            <Link href='/admin/overview' className="w-full hero-title text-2xl">
+                            Admin
+                            </Link>
+                        </DropdownMenuItem>
+                    )}
                     <DropdownMenuItem>
                         <form action={signOutUser}>
                             <button className="w-full hero-title text-2xl text-pink-500">
