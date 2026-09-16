@@ -6,6 +6,8 @@ import { formatCurrency, formatDateTime, formatNumber } from "@/lib/utils";
 import { BadgeDollarSign, CreditCard, Users } from "lucide-react";
 import { Metadata } from "next";
 import Link from "next/link";
+import Charts from "./charts";
+import { redirect } from "next/navigation";
 
 export const metadata: Metadata = {
     title: 'Admin Dashboard'
@@ -14,15 +16,19 @@ export const metadata: Metadata = {
 const AdminOverviewPage = async () => {
     const session = await auth();
 
-    if(session?.user?.role !== 'admin') {
-        throw new Error('User is not admin')
+    if (!session?.user) {
+    redirect('/sign-in');
+    }
+
+    if (session.user.role !== 'admin') {
+    redirect('/');
     }
 
     const summary = await getDashboardSummary();
 
 
     return (
-        <div className="space-y-2">
+        <div className="space-y-2 py-7">
             <h1 className="hero-title text-4xl p-4">
                 Dashboard
             </h1>
@@ -67,7 +73,9 @@ const AdminOverviewPage = async () => {
                         <CardTitle>Overview</CardTitle>
                     </CardHeader>
                     <CardContent>
-
+                        <Charts data={{
+                            salesData: summary.salesData
+                        }} />
                     </CardContent>
                 </Card>
                 <Card className="col-span-3 border-2 border-rounded p-5">
