@@ -94,9 +94,15 @@ export async function getDashboardSummary() {
   })
 
   const totalRevenue = await prisma.subscription.aggregate({
+    where: {
+        status: {
+            not: 'PENDING'
+        }
+    },
     _sum: {
         price: true
-    }
+        
+    },
   });
 
   const salesDataRaw = await prisma.$queryRaw<
