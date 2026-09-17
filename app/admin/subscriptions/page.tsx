@@ -1,7 +1,8 @@
 import { auth } from "@/auth";
 import { requireAdmin } from "@/auth-guard";
+import DeleteDialog from "@/components/shared/delete-dialog";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { getAllSubscriptions } from "@/lib/actions/subscription.actions";
+import { deleteSubscription, getAllSubscriptions } from "@/lib/actions/subscription.actions";
 import { formatDateTime } from "@/lib/utils";
 import { Metadata } from "next";
 import Link from "next/link";
@@ -55,6 +56,7 @@ const AdminSubscriptionsPage = async () => {
                                             Details
                                         </Link>
                                     </button>
+                                    <DeleteDialog id={subscription.id} action={deleteSubscription}/>
                                 </TableCell>
                             </TableRow>
                         ))}

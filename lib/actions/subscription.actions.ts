@@ -7,6 +7,7 @@ import { subscriptionPlanSchema } from "../validators";
 import { Prisma } from "../generated/prisma/client";
 import { formatError } from "../format-error";
 import { paypal } from "../paypal";
+import { revalidatePath } from "next/cache";
 
 export async function createUserSubscription(
   data: z.infer<typeof subscriptionPlanSchema>,
@@ -214,4 +215,26 @@ export async function getAllSubscriptions() {
     dataCount
   }
 
+}
+
+export async function deleteSubscription(id: string) {
+  try {
+    await prisma.subscription.delete({
+      where: {
+        id,
+      }
+    });
+
+    revalidatePath('/admin/subscriptions')
+
+    return {
+      success: true,
+      message: 'Subscription deleted successfully'
+    }
+  } catch (error) {
+    return {
+      success: false,
+      message: formatError(error)
+    }
+  }
 }

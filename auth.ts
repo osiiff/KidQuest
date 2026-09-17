@@ -14,6 +14,17 @@ export const config = {
     strategy: "jwt",
     maxAge: 30 * 24 * 60 * 60,
   },
+  cookies: {
+        sessionToken: {
+            name: 'kidquest.session-token',
+            options: {
+                httpOnly: true,
+                sameSite: 'lax',
+                path: '/',
+                secure: process.env.NODE_ENV === 'production'
+            }
+        }
+    },
   adapter: PrismaAdapter(prisma),
   providers: [
     CredentialsProvider({
@@ -77,7 +88,7 @@ export const config = {
       if (trigger === "update" && session?.user?.name) {
         token.name = session.user.name;
       }
-      
+
       return token;
     },
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
