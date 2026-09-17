@@ -22,7 +22,7 @@ const AdminOverviewPage = async () => {
     redirect('/sign-in');
     }
 
-    if (session.user.role !== 'admin') {
+    if (session?.user?.role !== 'admin') {
     redirect('/');
     }
 

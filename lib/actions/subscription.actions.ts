@@ -181,3 +181,37 @@ export async function getMySubscriptions() {
       data
     }
 }
+
+export async function getAllSubscriptions() {
+  const data = await prisma.subscription.findMany({
+    where: {
+      status: {
+        not: 'PENDING'
+      }
+    },
+    orderBy: {
+      createdAt: 'desc'
+    },
+    include: {
+      user: {
+        select: {
+          name: true
+        }
+      }
+    },
+  });
+
+  const dataCount = await prisma.subscription.count({
+    where: {
+      status: {
+        not: 'PENDING'
+      }
+    }
+  });
+
+  return {
+    data,
+    dataCount
+  }
+
+}
