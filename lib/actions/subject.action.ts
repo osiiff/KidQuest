@@ -156,3 +156,27 @@ export async function getDashboardSummary() {
     salesData
   }
 }
+
+export async function getAllSubjects({
+    query,
+    subject,
+    task,
+    question,
+}: {
+    query: string,
+    subject?: string,
+    task?: string,
+    question?: string
+}) {
+    const data = await prisma.subject.findMany({
+        include: {
+            tasks: {
+                include: {
+                    questions: true
+                }
+            }
+        }
+    });
+
+    return data;
+}
