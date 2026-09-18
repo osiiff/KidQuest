@@ -3,6 +3,8 @@
 import "dotenv/config";
 import { prisma } from "../prisma";
 import { Prisma } from "../generated/prisma/client";
+import { formatError } from "../format-error";
+import { revalidatePath } from "next/cache";
 
 export async function getLatestSubjects() {
     const subjects = await prisma.subject.findMany({
@@ -179,4 +181,35 @@ export async function getAllSubjects({
     });
 
     return data;
+}
+
+export async function deleteTask(id: string) {
+    try {
+        const taskExists = await prisma.task.findFirst({
+        where: {
+            id
+        }
+    });
+
+    if(!taskExists) throw new Error('Task not found');
+
+    await prisma.task.delete({
+        where: {
+            id
+        }
+    });
+
+    revalidatePath('/admin/tasks');
+
+    return {
+        success: true,
+        message: 'Task deleted successfully'
+    }
+
+    } catch (error) {
+     return {
+        success: false,
+        message: formatError(error)
+     }   
+    }
 }

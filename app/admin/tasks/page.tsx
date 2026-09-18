@@ -1,5 +1,6 @@
+import DeleteDialog from "@/components/shared/delete-dialog";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { getAllSubjects } from "@/lib/actions/subject.action";
+import { deleteTask, getAllSubjects } from "@/lib/actions/subject.action";
 import Link from "next/link";
 
 const AdminTasksPage = async (props: {
@@ -61,6 +62,7 @@ const AdminTasksPage = async (props: {
                                     Edit
                                     </Link>
                                 </button>
+                                <DeleteDialog id={task.id} action={deleteTask} />
                             </TableCell>
                         </TableRow>
                             ))
