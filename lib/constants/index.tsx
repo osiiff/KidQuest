@@ -67,3 +67,26 @@ export const SUBSCRIPTION_PLANS = [
   },
 ] as const;
 
+export const subjectDefaultValues = {
+  name: '',
+  slug: '',
+  description: '',
+  image: '',
+  tasks: [],
+}
+
+export const taskDefaultValues = {
+  title: '',
+  slug: '',
+  description: '',
+  image: '',
+  difficulty: '',
+  ageGroup: '',
+  questions: []
+}
+
+export const questionDefaultValues = {
+  text: '',
+  options: [],
+  correctAnswer: '',
+}

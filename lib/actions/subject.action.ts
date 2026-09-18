@@ -5,6 +5,8 @@ import { prisma } from "../prisma";
 import { Prisma } from "../generated/prisma/client";
 import { formatError } from "../format-error";
 import { revalidatePath } from "next/cache";
+import z from "zod";
+import { insertQuestionSchema, insertSubjectsSchema, insertTasksSchema, updateQuestionSchema, updateSubjectsSchema, updateTasksSchema } from "../validators";
 
 export async function getLatestSubjects() {
     const subjects = await prisma.subject.findMany({
@@ -211,5 +213,176 @@ export async function deleteTask(id: string) {
         success: false,
         message: formatError(error)
      }   
+    }
+}
+
+export async function createSubject(data: z.infer<typeof insertSubjectsSchema>) {
+    try {
+        const subject = insertSubjectsSchema.parse(data);
+
+        await prisma.subject.create({
+            data: subject,
+        });
+
+        revalidatePath('/admin/tasks');
+
+        return {
+            success: true,
+            message: 'Subject created successfully'
+        }
+
+    } catch (error) {
+        return {
+        success: false,
+        message: formatError(error)
+     }  
+    }
+}
+
+export async function createTask(data: z.infer<typeof insertTasksSchema>) {
+    try {
+        const task = insertTasksSchema.parse(data);
+
+        await prisma.task.create({
+            data: task,
+        });
+
+        revalidatePath('/admin/tasks');
+
+        return {
+            success: true,
+            message: 'Task created successfully'
+        }
+
+    } catch (error) {
+        return {
+        success: false,
+        message: formatError(error)
+     }  
+    }
+}
+
+export async function createQuestion(data: z.infer<typeof insertQuestionSchema>) {
+    try {
+        const question = insertQuestionSchema.parse(data);
+
+        await prisma.question.create({
+            data: question,
+        });
+
+        revalidatePath('/admin/tasks');
+
+        return {
+            success: true,
+            message: 'Question created successfully'
+        }
+
+    } catch (error) {
+        return {
+        success: false,
+        message: formatError(error)
+     }  
+    }
+}
+
+export async function updateSubject(data: z.infer<typeof updateSubjectsSchema>) {
+    try {
+        const subject = updateSubjectsSchema.parse(data);
+
+        const subjectExists = await prisma.subject.findFirst({
+            where: {
+                id: subject.id
+            }
+        });
+
+        if(!subjectExists) throw new Error('Subject not found');
+
+        await prisma.subject.update({
+            where: {
+                id: subject.id
+            },
+            data: subject
+        });
+
+        revalidatePath('/admin/tasks');
+
+        return {
+            success: true,
+            message: 'Subject updated successfully'
+        }
+
+    } catch (error) {
+        return {
+        success: false,
+        message: formatError(error)
+     }  
+    }
+}
+
+export async function updateTask(data: z.infer<typeof updateTasksSchema>) {
+    try {
+        const task = updateTasksSchema.parse(data);
+
+        const taskExists = await prisma.task.findFirst({
+            where: {
+                id: task.id
+            }
+        });
+
+        if(!taskExists) throw new Error('Task not found');
+
+        await prisma.task.update({
+            where: {
+                id: task.id
+            },
+            data: task
+        });
+
+        revalidatePath('/admin/tasks');
+
+        return {
+            success: true,
+            message: 'Task updated successfully'
+        }
+
+    } catch (error) {
+        return {
+        success: false,
+        message: formatError(error)
+     }  
+    }
+}
+
+export async function updateQuestion(data: z.infer<typeof updateQuestionSchema>) {
+    try {
+        const question = updateQuestionSchema.parse(data);
+
+        const questionExists = await prisma.question.findFirst({
+            where: {
+                id: question.id
+            }
+        });
+
+        if(!questionExists) throw new Error('Task not found');
+
+        await prisma.question.update({
+            where: {
+                id: question.id
+            },
+            data: question
+        });
+
+        revalidatePath('/admin/tasks');
+
+        return {
+            success: true,
+            message: 'Question updated successfully'
+        }
+
+    } catch (error) {
+        return {
+        success: false,
+        message: formatError(error)
+     }  
     }
 }

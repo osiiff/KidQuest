@@ -2,6 +2,20 @@ import { z } from 'zod';
 import { PAYMENT_METHODS } from './constants';
 import { SubscriptionPlan } from './generated/prisma/enums';
 
+export const insertQuestionSchema = z.object({
+    text: z.string().min(3, 'Text must be at least 3 characters'),
+    options: z.array(z.string().min(1, 'Option must be at least 1 character')).min(2, 'Options must be at least 2'),
+    correctAnswer: z.string().min(1, 'Answer must be at least 1 character'),
+    taskId: z.string().min(1, 'Id is required'),
+}).refine((question) => question.options.includes(question.correctAnswer), {
+    message: 'Correct answer must be in the options',
+    path: ['correctAnswer']
+})
+
+export const updateQuestionSchema = insertQuestionSchema.extend({
+    id: z.string().min(1, 'Id is required')
+})
+
 export const insertTasksSchema = z.object({
     title: z.string().min(3, 'Title must be at least 3 characters'),
     slug: z.string().min(3, 'Slug must be at least 3 characters'),
@@ -9,6 +23,11 @@ export const insertTasksSchema = z.object({
     image: z.string().min(1, 'Subject must have at least one image'),
     difficulty: z.string().default('beginner'),
     ageGroup: z.string().default('all'),
+    subjectId: z.string().min(1, 'Id is required'),
+});
+
+export const updateTasksSchema = insertTasksSchema.extend({
+    id: z.string().min(1, 'Id is required')
 })
 
 export const insertSubjectsSchema = z.object({
@@ -16,7 +35,10 @@ export const insertSubjectsSchema = z.object({
     slug: z.string().min(3, 'Slug must be at least 3 characters'),
     description: z.string().min(3, 'Description must be at least 3 characters'),
     image: z.string().min(1, 'Subject must have at least one image'),
-    tasks: z.array(insertTasksSchema).min(1),
+})
+
+export const updateSubjectsSchema = insertSubjectsSchema.extend({
+    id: z.string().min(1, 'Id is required')
 })
 
 export const signInFormSchema = z.object({
@@ -57,3 +79,4 @@ export const updateProfileSchema = z.object({
     name: z.string().min(3, 'Name must be at least 3 characters'),
     email: z.string().min(3, 'Email must be at least 3 characters')
 })
+
