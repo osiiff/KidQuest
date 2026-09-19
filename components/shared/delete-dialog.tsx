@@ -3,6 +3,7 @@
 import { useState, useTransition } from "react";
 import { AlertDialog, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "../ui/alert-dialog";
 import { toast } from "sonner";
+import { Trash } from "lucide-react";
 
 const DeleteDialog = ({
     id,
@@ -33,8 +34,8 @@ const DeleteDialog = ({
     return (
         <AlertDialog open={open} onOpenChange={setOpen}>
             <AlertDialogTrigger asChild>
-                <button className="btn-primary pastel-pink text-pink-700 ml-2">
-                    Delete
+                <button className="btn-primary pastel-pink text-pink-700 ml-2 p-3">
+                    <Trash/>
                 </button>
             </AlertDialogTrigger>
             <AlertDialogContent className="bg-white">
@@ -50,8 +51,8 @@ const DeleteDialog = ({
                     <AlertDialogCancel className="btn-secondary">
                         Cancel
                     </AlertDialogCancel>
-                    <button className="btn-primary pastel-pink text-pink-700" disabled={isPending} onClick={handleDeleteClick}>
-                        {isPending ? 'Deleting...' : 'Delete'}
+                    <button className="btn-primary pastel-pink text-pink-700 " disabled={isPending} onClick={handleDeleteClick}>
+                        {isPending ? 'Deleting...' : <Trash/>}
                     </button>
                 </AlertDialogFooter>
             </AlertDialogContent>

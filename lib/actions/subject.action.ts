@@ -185,6 +185,37 @@ export async function getAllSubjects({
     return data;
 }
 
+export async function deleteSubject(id: string) {
+    try {
+        const subjectExists = await prisma.subject.findFirst({
+        where: {
+            id
+        }
+    });
+
+    if(!subjectExists) throw new Error('Subject not found');
+
+    await prisma.subject.delete({
+        where: {
+            id
+        }
+    });
+
+    revalidatePath('/admin/tasks');
+
+    return {
+        success: true,
+        message: 'Subject deleted successfully'
+    }
+
+    } catch (error) {
+     return {
+        success: false,
+        message: formatError(error)
+     }   
+    }
+}
+
 export async function deleteTask(id: string) {
     try {
         const taskExists = await prisma.task.findFirst({
@@ -206,6 +237,37 @@ export async function deleteTask(id: string) {
     return {
         success: true,
         message: 'Task deleted successfully'
+    }
+
+    } catch (error) {
+     return {
+        success: false,
+        message: formatError(error)
+     }   
+    }
+}
+
+export async function deleteQuestion(id: string) {
+    try {
+        const questionExists = await prisma.question.findFirst({
+        where: {
+            id
+        }
+    });
+
+    if(!questionExists) throw new Error('Question not found');
+
+    await prisma.question.delete({
+        where: {
+            id
+        }
+    });
+
+    revalidatePath('/admin/tasks');
+
+    return {
+        success: true,
+        message: 'Question deleted successfully'
     }
 
     } catch (error) {
@@ -384,5 +446,17 @@ export async function updateQuestion(data: z.infer<typeof updateQuestionSchema>)
         success: false,
         message: formatError(error)
      }  
+    }
+}
+
+export async function getSubjectsSummary() {
+    const subjectsCount = await prisma.subject.count();
+    const tasksCount = await prisma.task.count();
+    const questionsCount = await prisma.question.count();
+
+    return {
+        subjectsCount,
+        tasksCount,
+        questionsCount
     }
 }

@@ -156,6 +156,10 @@
     border-radius: var(--radius-2xl);
   }
 
+  .border-rounded-small {
+    border-radius: var(--radius-md);
+  }
+
   .roundedxxl {
     border-radius: 999px;
   }
