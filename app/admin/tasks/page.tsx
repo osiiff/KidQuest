@@ -53,7 +53,7 @@ const AdminTasksPage = async (props: {
       <div className="flex-between">
         <p className="hero-title text-4xl">Tasks</p>
         <button className="btn-primary">
-          <Link href="/admin/tasks/create">Create New Task</Link>
+          <Link href="/admin/tasks/create-subject" className="flex"><Plus/> Create New Subject</Link>
         </button>
       </div>
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 pt-4">
@@ -91,7 +91,8 @@ const AdminTasksPage = async (props: {
             key={subject.id}
             className="border-rounded border-2 py-2 my-4 bg-purple-50"
           >
-            <CollapsibleTrigger className="flex justify-between w-full ">
+            <div className="flex justify-between w-full">
+            <CollapsibleTrigger >
               <div className="flex flex-row items-center space-x-2 px-5">
                 <ChevronDown />
                 <Image
@@ -107,7 +108,8 @@ const AdminTasksPage = async (props: {
                   <p className="hero-text text-sm m-0">{subject.description}</p>
                 </div>
               </div>
-              <div className="px-5">
+            </CollapsibleTrigger>
+            <div className="px-5">
                 <Link href={`/admin/tasks/${subject.id}`}>
                   <p className="btn-secondary p-3">
                     <Pencil />
@@ -118,13 +120,14 @@ const AdminTasksPage = async (props: {
                   <Plus />
                 </button>
               </div>
-            </CollapsibleTrigger>
+              </div>
             <CollapsibleContent>
               {subject.tasks.map((task) => (
                 <Collapsible
                   key={task.id}
                   className="border-rounded border-2 py-2 my-2 bg-white mx-5"
                 >
+                <div className="flex justify-between w-full">
                   <CollapsibleTrigger className="flex justify-between w-full ">
                     <div className="flex flex-row items-center space-x-2 px-5">
                       <ChevronDown />
@@ -148,12 +151,13 @@ const AdminTasksPage = async (props: {
                         <p className="badge">{task.ageGroup}</p>
                       </div>
                     </div>
-                    <Collapsible className="m-4">
-                      <CollapsibleTrigger className="flex w-full">
+                  </CollapsibleTrigger>
+                  <Collapsible className="m-4">
+                      <CollapsibleTrigger className="flex w-full" >
                         <EllipsisVertical />
                       </CollapsibleTrigger>
                       <CollapsibleContent>
-                        <div className="px-5">
+                        <div className="px-5 flex w-full">
                           <Link href={`/admin/tasks/${task.id}`}>
                             <p className="btn-secondary p-3">
                               <Pencil />
@@ -166,7 +170,7 @@ const AdminTasksPage = async (props: {
                         </div>
                       </CollapsibleContent>
                     </Collapsible>
-                  </CollapsibleTrigger>
+                  </div>
                   <CollapsibleContent className="w-full">
                     {task.questions.map((question) => (
                       <div
