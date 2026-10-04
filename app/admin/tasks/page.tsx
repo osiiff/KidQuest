@@ -117,7 +117,9 @@ const AdminTasksPage = async (props: {
                 </Link>
                 <DeleteDialog id={subject.id} action={deleteSubject} />
                 <button className="btn-primary mx-2 p-3">
+                  <Link href={`/admin/tasks/create-task/?subjectId=${subject.id}`}>
                   <Plus />
+                  </Link>
                 </button>
               </div>
               </div>
