@@ -34,7 +34,7 @@ export const insertSubjectsSchema = z.object({
     name: z.string().min(3, 'Name must be at least 3 characters'),
     slug: z.string().min(3, 'Slug must be at least 3 characters'),
     description: z.string().min(3, 'Description must be at least 3 characters'),
-    image: z.string().min(1, 'Subject must have at least one image'),
+    //image: z.string().min(1, 'Subject must have at least one image'),
 })
 
 export const updateSubjectsSchema = insertSubjectsSchema.extend({

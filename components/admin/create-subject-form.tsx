@@ -5,11 +5,13 @@ import { insertSubjectsSchema } from "@/lib/validators";
 import { Subject } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
-import { Controller, useForm } from "react-hook-form";
+import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import z from "zod";
 import { Field, FieldError, FieldGroup, FieldLabel } from "../ui/field";
 import { Input } from "../ui/input";
 import slugify from 'slugify';
+import { createSubject, updateSubject } from "@/lib/actions/subject.action";
+import { toast } from "sonner";
 
 const CreateSubjectForm = ({type, subject, subjectId}: {
     type: 'Create' | 'Update',
@@ -24,8 +26,43 @@ const CreateSubjectForm = ({type, subject, subjectId}: {
         defaultValues: subject && type === 'Update' ? subject : subjectDefaultValues
     })
 
+    const onSubmit:SubmitHandler<z.infer<typeof insertSubjectsSchema>> = async (values) => {
+        if(type === 'Create') {
+            const res = await createSubject(values);
+
+            if (res.success) {
+                toast.success(res.message);
+                router.push('/admin/tasks')
+            } else {
+                toast.error(res.message);
+            }
+
+            
+        }
+
+        if(type === 'Update') {
+            if(!subjectId) {
+                router.push('/admin/tasks');
+                return;
+            }
+
+            const res = await updateSubject({
+                ...values,
+                id: subjectId,
+            });
+
+            if (res.success) {
+                toast.success(res.message);
+                router.push('/admin/tasks')
+            } else {
+                toast.error(res.message);
+            }
+        }
+    }
+
+
     return (
-        <form>
+        <form method="POST" onSubmit={form.handleSubmit(onSubmit)}>
             <FieldGroup className="space-y-5">
                 <div className="flex flex-col md:flex-row gap-5">
                     <Controller 
@@ -99,7 +136,7 @@ const CreateSubjectForm = ({type, subject, subjectId}: {
                 </div>
                 <div>
                 <button type="submit" disabled={form.formState.isSubmitting} className="btn-primary col-span-2 w-full mb-4">
-                    {form.formState.isSubmitting ? 'Submitting...' : `${type} Product`}
+                    {form.formState.isSubmitting ? 'Submitting...' : `${type} Subject`}
                 </button>
         </div>
             </FieldGroup>
