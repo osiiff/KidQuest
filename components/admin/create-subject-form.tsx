@@ -5,13 +5,16 @@ import { insertSubjectsSchema } from "@/lib/validators";
 import { Subject } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
-import { Controller, SubmitHandler, useForm } from "react-hook-form";
+import { Controller, SubmitHandler, useForm, useWatch } from "react-hook-form";
 import z from "zod";
 import { Field, FieldError, FieldGroup, FieldLabel } from "../ui/field";
 import { Input } from "../ui/input";
 import slugify from 'slugify';
 import { createSubject, updateSubject } from "@/lib/actions/subject.action";
 import { toast } from "sonner";
+import { Card, CardContent } from "../ui/card";
+import Image from "next/image";
+import { UploadButton } from "@/lib/uploadthing";
 
 const CreateSubjectForm = ({type, subject, subjectId}: {
     type: 'Create' | 'Update',
@@ -59,6 +62,11 @@ const CreateSubjectForm = ({type, subject, subjectId}: {
             }
         }
     }
+
+    const image = useWatch({
+        control: form.control,
+        name: "image",
+        });
 
 
     return (
@@ -113,6 +121,35 @@ const CreateSubjectForm = ({type, subject, subjectId}: {
                         </Field>
                     )}>
                     </Controller>
+                </div>
+                <div className="upload-field flex flex-col md:flex-row gap-5">
+                    <Controller
+                        name="image"
+                        control={form.control}
+                        render={() => (
+                        <Field className="w-full">
+                            <FieldLabel>Images</FieldLabel>
+                            <Card>
+                            <CardContent className="space-y-2 mt-2 min-h-48">
+                                <div className="flex-start space-x-2">
+                                    {image && (
+                                    <Image src={image} alt="product image" className="w-20 h-20 object-cover object-center rounded-sm" width={100} height={100}/>
+                                    )}
+                                </div>
+                                <UploadButton endpoint='imageUploader' onClientUploadComplete={(res: {url: string}[]) => {
+                            form.setValue('image', res[0].url, {
+                                shouldValidate: true,
+                                shouldDirty: true
+                            });
+                            }}
+                            onUploadError={(error: Error) => {
+                            toast.error(error.message)
+                            }}/>
+                            </CardContent>
+                            </Card>
+                        </Field>
+                        )}
+                    ></Controller>
                 </div>
                 <div className="flex flex-col md:flex-row gap-5">
                     <Controller 

@@ -5,7 +5,7 @@ import { insertTasksSchema } from "@/lib/validators";
 import { Task } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Controller, SubmitHandler, useForm } from "react-hook-form";
+import { Controller, SubmitHandler, useForm, useWatch } from "react-hook-form";
 import z from "zod";
 import { Field, FieldError, FieldGroup, FieldLabel } from "../ui/field";
 import { Input } from "../ui/input";
@@ -13,6 +13,9 @@ import slugify from 'slugify';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select";
 import { createTask, updateTask } from "@/lib/actions/subject.action";
 import { toast } from "sonner";
+import { Card, CardContent } from "../ui/card";
+import Image from "next/image";
+import { UploadButton } from "@/lib/uploadthing";
 
 const CreateTaskForm = ({type, task, taskId}:{
     type: 'Create' | 'Update',
@@ -65,6 +68,11 @@ const CreateTaskForm = ({type, task, taskId}:{
             }
         }
     }
+
+    const image = useWatch({
+            control: form.control,
+            name: "image",
+            });
 
     return (
         <form method="POST" onSubmit={form.handleSubmit(onSubmit)}>
@@ -119,6 +127,35 @@ const CreateTaskForm = ({type, task, taskId}:{
                     )}>
                     </Controller>
                 </div>
+                <div className="upload-field flex flex-col md:flex-row gap-5">
+                    <Controller
+                        name="image"
+                        control={form.control}
+                        render={() => (
+                        <Field className="w-full">
+                            <FieldLabel>Images</FieldLabel>
+                            <Card className="border-rounded border-2">
+                            <CardContent className="space-y-2 mt-2 min-h-48">
+                                <div className="flex-start space-x-2">
+                                    {image && (
+                                    <Image src={image} alt="product image" className="w-20 h-20 object-cover object-center" width={100} height={100}/>
+                                    )}
+                                </div>
+                                <UploadButton endpoint='imageUploader' onClientUploadComplete={(res: {url: string}[]) => {
+                            form.setValue('image', res[0].url, {
+                                shouldValidate: true,
+                                shouldDirty: true
+                            });
+                            }}
+                            onUploadError={(error: Error) => {
+                            toast.error(error.message)
+                            }}/>
+                            </CardContent>
+                            </Card>
+                        </Field>
+                        )}
+                    ></Controller>
+                </div>
                 <div className="flex flex-col md:flex-row gap-5">
                     <Controller 
                     name="description"
@@ -138,6 +175,8 @@ const CreateTaskForm = ({type, task, taskId}:{
                         </Field>
                     )}>
                     </Controller>
+                </div>
+                <div className="flex flex-col md:flex-row gap-5">
                     <Controller 
                     name="difficulty"
                     control={form.control}
@@ -161,8 +200,6 @@ const CreateTaskForm = ({type, task, taskId}:{
                         </Field>
                     )}>
                     </Controller>
-                </div>
-                <div className="flex flex-col md:flex-row gap-5">
                     <Controller 
                     name="ageGroup"
                     control={form.control}
@@ -180,25 +217,6 @@ const CreateTaskForm = ({type, task, taskId}:{
                                     <SelectItem value="Primary School">Primary School</SelectItem>
                                 </SelectContent>
                             </Select>
-                            {fieldState.invalid && (
-                                <FieldError errors={[fieldState.error]} />
-                            )}
-                        </Field>
-                    )}>
-                    </Controller>
-                    <Controller 
-                    name="image"
-                    control={form.control}
-                    render={({field, fieldState}) => (
-                        <Field data-invalid={fieldState.invalid} className="w-full">
-                            <FieldLabel className="hero-text">Image</FieldLabel>
-                            <Input
-                            {...field}
-                            placeholder="Choose Image"
-                            type="file"
-                            aria-invalid={fieldState.invalid}
-                            className="border-rounded bg-blue-50"
-                            />
                             {fieldState.invalid && (
                                 <FieldError errors={[fieldState.error]} />
                             )}
