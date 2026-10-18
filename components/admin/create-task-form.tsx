@@ -24,20 +24,29 @@ const CreateTaskForm = ({type, task, taskId}:{
 }) => {
 
     const router = useRouter();
+    const searchParams = useSearchParams();
+    const subjectId = searchParams.get("subjectId");
 
     const form = useForm<z.input<typeof insertTasksSchema>,
         unknown,
         z.output<typeof insertTasksSchema>>({
         resolver: zodResolver(insertTasksSchema),
-        defaultValues: task && type === 'Update' ? task : taskDefaultValues
+        defaultValues: { 
+            ...(task && type === 'Update' ? task : taskDefaultValues),
+            subjectId: task?.subjectId ?? subjectId ?? '',
+        }
     })
-
-    const searchParams = useSearchParams();
-    const subjectId = searchParams.get("subjectId");
 
     const onSubmit:SubmitHandler<z.infer<typeof insertTasksSchema>> = async (values) => {
         if(type === 'Create') {
-            const res = await createTask(values);
+            if(!subjectId) {
+                toast.error('Subject is required');
+                return;
+            }
+            const res = await createTask({
+                ...values,
+                subjectId
+            });
 
             if (res.success) {
                 toast.success(res.message);
@@ -187,8 +196,7 @@ const CreateTaskForm = ({type, task, taskId}:{
                                 <SelectTrigger onBlur={field.onBlur} aria-invalid={fieldState.invalid} className="border-rounded border-2 bg-blue-50">
                                     <SelectValue placeholder="Select Difficulty"></SelectValue>
                                 </SelectTrigger>
-                                <SelectContent position="popper" defaultValue='All' className="bg-white">
-                                    <SelectItem value="All" >All</SelectItem>
+                                <SelectContent position="popper" className="bg-white">
                                     <SelectItem value="beginner">Beginner</SelectItem>
                                     <SelectItem value="medium">Medium</SelectItem>
                                     <SelectItem value="advanced">Advanced</SelectItem>
@@ -210,8 +218,8 @@ const CreateTaskForm = ({type, task, taskId}:{
                                 <SelectTrigger onBlur={field.onBlur} aria-invalid={fieldState.invalid} className="border-rounded border-2 bg-blue-50">
                                     <SelectValue placeholder="Select Age Group"></SelectValue>
                                 </SelectTrigger>
-                                <SelectContent position="popper" defaultValue='All Ages' className="bg-white">
-                                    <SelectItem value="All Ages" >All Ages</SelectItem>
+                                <SelectContent position="popper" className="bg-white">
+                                    <SelectItem value="all-ages" >All Ages</SelectItem>
                                     <SelectItem value="Kindergarten">Kindergarten</SelectItem>
                                     <SelectItem value="Early Primary">Early Primary</SelectItem>
                                     <SelectItem value="Primary School">Primary School</SelectItem>

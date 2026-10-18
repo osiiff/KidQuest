@@ -80,9 +80,10 @@ export const taskDefaultValues = {
   slug: '',
   description: '',
   image: '',
-  difficulty: '',
-  ageGroup: '',
-  questions: []
+  difficulty: 'beginner',
+  ageGroup: 'all-ages',
+  questions: [],
+  subjectId: ''
 }
 
 export const questionDefaultValues = {
