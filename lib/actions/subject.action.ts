@@ -39,18 +39,53 @@ export async function getTaskBySlug(slug: string) {
     
 } 
 
+export async function getTaskById(taskId: string) {
+    const task = prisma.task.findFirst({
+        where: {
+            id: taskId,
+        },
+        include: {
+            subject: true,
+        },
+    });
+
+    return task
+    
+} 
+
+
+
 export async function getSubjectBySlug(slug: string) {
     const subject = await prisma.subject.findUnique({
         where: {
             slug,
         },
-        include: {
-            tasks: true,
-        }
     });
 
     return subject;
 }
+
+export async function getSubjectById(subjectId: string) {
+    const subject = prisma.subject.findFirst({
+        where: {
+            id: subjectId,
+        },
+    });
+
+    return subject
+    
+} 
+
+export async function getQuestionById(questionId: string) {
+    const question = prisma.question.findFirst({
+        where: {
+            id: questionId,
+        },
+    });
+
+    return question
+    
+} 
 
 export async function getTaskByGroup(ageGroup: string) {
   const tasks = await prisma.task.findMany({

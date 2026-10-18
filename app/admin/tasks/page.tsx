@@ -160,7 +160,7 @@ const AdminTasksPage = async (props: {
                       </CollapsibleTrigger>
                       <CollapsibleContent>
                         <div className="px-5 flex w-full">
-                          <Link href={`/admin/tasks/create-question?taskId=${task.id}`}>
+                          <Link href={`/admin/tasks/update-task/${task.id}`}>
                             <p className="btn-secondary p-3">
                               <Pencil />
                             </p>
@@ -199,7 +199,7 @@ const AdminTasksPage = async (props: {
                           </div>
                         ))}
                         <div className="flex items-center ">
-                          <Link href={`/admin/tasks/${question.id}`}>
+                          <Link href={`/admin/tasks/update-question/${question.id}`}>
                             <p className="btn-secondary p-3">
                               <Pencil />
                             </p>
