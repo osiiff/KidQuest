@@ -60,6 +60,9 @@ export async function getSubjectBySlug(slug: string) {
         where: {
             slug,
         },
+        include: {
+            tasks: true
+        }
     });
 
     return subject;

@@ -8,6 +8,7 @@ import { hashSync } from "bcrypt-ts-edge";
 import { prisma } from "../prisma";
 import { formatError } from "../format-error";
 import z from "zod";
+import { revalidatePath } from "next/cache";
 
 export async function signWithCredentials(prevState: unknown, formData: FormData) {
     try {
@@ -162,3 +163,22 @@ export async function getAllUsers() {
     }
 }
 
+export async function deleteUser(id: string) {
+    try {
+        await prisma.user.delete({
+            where: {
+                id
+            }
+        });
+        revalidatePath('/admin/users');
+        return {
+            success: true,
+            message: 'User deleted successfully'
+        }
+    } catch (error) {
+        return {
+            success: false,
+            message: formatError(error)
+        }
+    }
+}

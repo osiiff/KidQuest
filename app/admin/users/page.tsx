@@ -1,6 +1,6 @@
 import DeleteDialog from "@/components/shared/delete-dialog";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { getAllUsers } from "@/lib/actions/user.actions";
+import { deleteUser, getAllUsers } from "@/lib/actions/user.actions";
 import { Metadata } from "next";
 import Link from "next/link";
 
@@ -41,7 +41,7 @@ const AdminUsersPage = async () => {
                                             Edit
                                         </Link>
                                     </button>
-                                    {/* <DeleteDialog id={user.id} action={deleteSubscription}/> */}
+                                    <DeleteDialog id={user.id} action={deleteUser}/>
                                 </TableCell>
                             </TableRow>
                         ))}
