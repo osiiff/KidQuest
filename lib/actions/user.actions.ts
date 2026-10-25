@@ -147,3 +147,18 @@ export async function updateProfile(user: {name: string, email: string}) {
     }
 }
 
+export async function getAllUsers() {
+    const data = await prisma.user.findMany({
+        orderBy: {
+            createdAt: 'desc'
+        },
+    });
+
+    const dataCount = await prisma.user.count();
+
+    return {
+        data,
+        dataCount
+    }
+}
+
