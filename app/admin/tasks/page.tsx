@@ -45,7 +45,7 @@ const AdminTasksPage = async (props: {
   return (
     <div className="space-y-2 py-4">
       <div className="flex-between">
-        <div>
+        <div className="flex items-center gap-3 my-4">
           <p className="hero-title text-4xl">Tasks</p>
           {searchText && (
             <div>

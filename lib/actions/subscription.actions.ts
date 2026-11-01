@@ -183,9 +183,24 @@ export async function getMySubscriptions() {
     }
 }
 
-export async function getAllSubscriptions() {
+export async function getAllSubscriptions({
+  query
+}: {
+  query: string
+}) {
+
+  const queryFilter = query && query !== 'all' ? {
+    user: {
+      name: {
+        contains: query,
+        mode: 'insensitive'
+      } as Prisma.StringFilter
+    }
+  } : {};
+
   const data = await prisma.subscription.findMany({
     where: {
+      ...queryFilter,
       status: {
         not: 'PENDING'
       }

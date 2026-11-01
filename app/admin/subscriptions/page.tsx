@@ -12,8 +12,12 @@ export const metadata: Metadata = {
     title: 'Admin Subscriptions'
 }
 
-const AdminSubscriptionsPage = async () => {
+const AdminSubscriptionsPage = async (props: {
+    searchParams: Promise<{query: string}>
+}) => {
     await requireAdmin();
+
+    const {query: searchText} = await props.searchParams;
 
     const session = await auth();
 
@@ -25,17 +29,32 @@ const AdminSubscriptionsPage = async () => {
         redirect('/');
         }
 
-    const subscriptions = await getAllSubscriptions();
+    const subscriptions = await getAllSubscriptions({
+        query: searchText
+    });
 
     return (
         <div className="space-y-2">
-            <h2 className="hero-title text-4xl py-5">Subscriptions</h2>
+            <div className="flex items-center gap-3 my-4">
+                    <h1 className="h2-bold">Subscriptions</h1>
+                    {searchText && (
+                        <div>
+                            Filtered by <i>&quot;{searchText}&quot;</i>{' '}
+                            <Link href='/admin/subscriptions'>
+                            <button className="btn-secondary">
+                                Remove Filter
+                            </button>
+                            </Link>
+                        </div>
+                    )}
+                </div>
             <div className="overflow-x-auto py-5">
                 <Table >
                     <TableHeader>
                         <TableRow className="hero-text">
                             <TableHead>ID</TableHead>
                             <TableHead>PLAN</TableHead>
+                            <TableHead>BUYER</TableHead>
                             <TableHead>START DATE</TableHead>
                             <TableHead>END DATE</TableHead>
                             <TableHead>STATUS</TableHead>
@@ -47,6 +66,7 @@ const AdminSubscriptionsPage = async () => {
                             <TableRow key={subscription.id}>
                                 <TableCell>{subscription.id}</TableCell>
                                 <TableCell>{subscription.plan}</TableCell>
+                                <TableCell>{subscription.user.name}</TableCell>
                                 <TableCell>{subscription.startDate ? formatDateTime(subscription.startDate).dateTime : '—'}</TableCell>
                                 <TableCell>{subscription.endDate ? formatDateTime(subscription.endDate).dateTime : '—'}</TableCell>
                                 <TableCell>{subscription.status}</TableCell>
