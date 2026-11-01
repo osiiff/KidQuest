@@ -35,15 +35,9 @@ const AdminTasksPage = async (props: {
   const searchParams = await props.searchParams;
 
   const searchText = searchParams.query || "";
-  const subject = searchParams.subject || "";
-  const task = searchParams.task || "";
-  const question = searchParams.question || "";
 
   const subjects = await getAllSubjects({
     query: searchText,
-    subject,
-    task,
-    question,
   });
 
   const summary = await getSubjectsSummary();
@@ -51,7 +45,19 @@ const AdminTasksPage = async (props: {
   return (
     <div className="space-y-2 py-4">
       <div className="flex-between">
-        <p className="hero-title text-4xl">Tasks</p>
+        <div>
+          <p className="hero-title text-4xl">Tasks</p>
+          {searchText && (
+            <div>
+              Filtered by <i>&quot;{searchText}&quot;</i>{' '}
+              <Link href='/admin/tasks'>
+              <button className="btn-secondary">
+                Remove Filter
+              </button>
+              </Link>
+            </div>
+          )}
+        </div>
         <button className="btn-primary">
           <Link href="/admin/tasks/create-subject" className="flex"><Plus/> Create New Subject</Link>
         </button>

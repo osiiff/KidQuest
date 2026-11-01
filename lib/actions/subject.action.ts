@@ -201,23 +201,50 @@ export async function getDashboardSummary() {
 
 export async function getAllSubjects({
     query,
-    subject,
-    task,
-    question,
 }: {
     query: string,
-    subject?: string,
-    task?: string,
-    question?: string
 }) {
+
+    const searchText = query.trim();
+
+    const textFilter = {
+        contains: searchText,
+        mode: 'insensitive' as const,
+    }
+
     const data = await prisma.subject.findMany({
+        where: searchText
+        ? {
+            OR: [
+                {name: textFilter},
+                {
+                    tasks: {
+                        some: {
+                            title: textFilter
+                        },
+                    },
+                },
+                {
+                    tasks: {
+                        some: {
+                            questions: {
+                                some: {
+                                    text: textFilter
+                                },
+                            },
+                        },
+                    },
+                },
+            ],
+        }
+        : {},
         include: {
             tasks: {
                 include: {
                     questions: true
-                }
-            }
-        }
+                },
+            },
+        },
     });
 
     return data;

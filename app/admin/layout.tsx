@@ -3,8 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { APP_NAME } from "@/lib/constants";
 import MainNav from "./main-nav";
-import { Input } from "@/components/ui/input";
 import UserButton from "@/components/shared/header/user-button";
+import AdminSearch from "@/components/admin/search-form";
 
 
 export default function AdminLayout({
@@ -22,7 +22,7 @@ export default function AdminLayout({
                 <MainNav className="mx-6"/>
                 <div className="ml-auto items-center flex space-x-4">
                   <div>
-                    <Input type="search" placeholder="Search..." className="border-rounded"  />
+                    <AdminSearch/>
                   </div>
                     <UserButton/>
                 </div>
