@@ -9,6 +9,7 @@ import { prisma } from "../prisma";
 import { formatError } from "../format-error";
 import z from "zod";
 import { revalidatePath } from "next/cache";
+import { Prisma } from "../generated/prisma/client";
 
 export async function signWithCredentials(prevState: unknown, formData: FormData) {
     try {
@@ -148,8 +149,22 @@ export async function updateProfile(user: {name: string, email: string}) {
     }
 }
 
-export async function getAllUsers() {
+export async function getAllUsers({
+    query
+}: {
+    query: string
+}) {
+    const queryFilter = query && query !== 'all' ? {
+          name: {
+            contains: query,
+            mode: 'insensitive'
+          } as Prisma.StringFilter
+      } : {};
+      
     const data = await prisma.user.findMany({
+        where: {
+            ...queryFilter
+        },
         orderBy: {
             createdAt: 'desc'
         },
