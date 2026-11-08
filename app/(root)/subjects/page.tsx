@@ -28,7 +28,7 @@ const SubjectsPage = async (props: {
                       <Link href={`subjects/${subject.slug}`} >
                         <h2 className="hero-title text-4xl">{subject.name}</h2>
                       </Link>
-                      <TasksList data={subject.tasks} limit={6}/>
+                      <TasksList data={subject.tasks}/>
                     </section>
                   ))}
                 </div>

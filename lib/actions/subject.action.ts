@@ -14,7 +14,7 @@ export async function getLatestSubjects({
 }: {
     difficulty?: string,
     ageGroup?: string
-}) {
+} = {}) {
     const filtered = {
     ...(difficulty && difficulty !== 'all' && {
       difficulty,
