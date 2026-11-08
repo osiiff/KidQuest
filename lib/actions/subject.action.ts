@@ -8,10 +8,29 @@ import { revalidatePath } from "next/cache";
 import z from "zod";
 import { insertQuestionSchema, insertSubjectsSchema, insertTasksSchema, updateQuestionSchema, updateSubjectsSchema, updateTasksSchema } from "../validators";
 
-export async function getLatestSubjects() {
+export async function getLatestSubjects({
+    difficulty,
+    ageGroup
+}: {
+    difficulty?: string,
+    ageGroup?: string
+}) {
+    const filtered = {
+    ...(difficulty && difficulty !== 'all' && {
+      difficulty,
+    }),
+    ...(ageGroup && ageGroup !== 'all' && {
+      ageGroup,
+    }),
+    }
+
     const subjects = await prisma.subject.findMany({
         include: {
-            tasks: true,
+            tasks: {
+                where: {
+                    ...filtered
+                }
+            },
         },
     })
 

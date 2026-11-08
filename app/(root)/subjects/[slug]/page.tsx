@@ -38,7 +38,7 @@ const SubjectPage = async (props: {params: Promise<{slug: string}>}) => {
                 </div>
                 <div>
                     <p className="hero-title text-4xl">Exercises</p>
-                        <TasksList data={subject.tasks}/>
+                        <TasksList data={subject.tasks} limit={6} />
                 </div>
             </div>
         </div>

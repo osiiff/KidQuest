@@ -5,8 +5,19 @@ import { getLatestSubjects } from "@/lib/actions/subject.action";
 
 
 
-const SubjectsPage = async () => {
-  const latestSubjects = await getLatestSubjects();
+const SubjectsPage = async (props: {
+  searchParams: Promise<{
+    difficulty: string,
+    ageGroup: string
+  }>
+}) => {
+
+  const {difficulty = 'all', ageGroup = 'all'} = await props.searchParams;
+
+  const latestSubjects = await getLatestSubjects({
+    difficulty,
+    ageGroup
+  });
     return (
         <div className="">
                 <SubjectsSlidebar/>
@@ -17,7 +28,7 @@ const SubjectsPage = async () => {
                       <Link href={`subjects/${subject.slug}`} >
                         <h2 className="hero-title text-4xl">{subject.name}</h2>
                       </Link>
-                      <TasksList data={subject.tasks}/>
+                      <TasksList data={subject.tasks} limit={6}/>
                     </section>
                   ))}
                 </div>

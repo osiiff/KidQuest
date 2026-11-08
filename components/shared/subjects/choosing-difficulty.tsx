@@ -1,5 +1,5 @@
 import { prisma } from "@/lib/prisma";
-import Link from "next/link";
+import DifficultyLink from "./difficulty-link";
 
 
 const ChoosingDifficulty = async () => {
@@ -17,10 +17,9 @@ const ChoosingDifficulty = async () => {
         <section className="p-3 flex align-super">
             <div className="info-panel w-xs">
                 <p className="logo">Choose difficulty</p>
+                <DifficultyLink difficulty="all" className="btn-primary" />
                 {difficulties.map((difficulty) => (
-                    <Link href={difficulty} key={difficulty} className={(difficulty === 'beginner' ? 'btn-secondary pastel-mint' : difficulty === 'medium' ? 'btn-secondary pastel-yellow' : 'btn-secondary pastel-pink') }>
-                        {difficulty}
-                    </Link>
+                    <DifficultyLink key={difficulty} difficulty={difficulty} className={(difficulty === 'beginner' ? 'btn-secondary pastel-mint' : difficulty === 'medium' ? 'btn-secondary pastel-yellow' : 'btn-secondary pastel-pink') }/>
                 ))}
             </div>
         </section>
