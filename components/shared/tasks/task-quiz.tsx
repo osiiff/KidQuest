@@ -52,34 +52,34 @@ const TaskQuiz = ({questions}: TaskQuizProps) => {
     
 
     return (
-        <div className="w-full">
-            <div className="flex justify-end p-4 w-full gap-3">
-                <Progress className="w-3/12 flex top-1 h-4" value={(currentQuestionIndex/questions.length)*100} />
-                <p className="font-medium">Question {currentQuestionIndex + 1} of {questions.length}</p>
+        <div className="w-full min-w-0">
+            <div className="mb-4 flex w-full min-w-0 flex-col gap-2 sm:flex-row sm:items-center sm:justify-end sm:gap-3">
+                <Progress className="h-3 w-full sm:w-1/3 sm:max-w-64 sm:shrink-0 sm:h-4" value={(currentQuestionIndex/questions.length)*100} />
+                <p className="min-w-0 text-sm font-medium [overflow-wrap:anywhere] sm:text-base">Question {currentQuestionIndex + 1} of {questions.length}</p>
             </div>
-            <Card className="bg-white border-rounded shadow-2xs w-full p-4">
-                <CardHeader className="flex-center p-4">
-                    <p className="hero-title text-3xl">
+            <Card className="w-full min-w-0 rounded-[var(--radius-2xl)] bg-white p-2 shadow-2xs sm:p-4 lg:p-6">
+                <CardHeader className="flex min-w-0 items-center justify-center px-2 py-4 sm:px-4 sm:py-6">
+                    <p className="w-full min-w-0 text-center text-xl leading-snug font-extrabold tracking-[-0.055em] text-[#29276f] [overflow-wrap:anywhere] min-[360px]:text-2xl sm:text-3xl xl:text-4xl">
                         {currentQuestion.text}
                     </p>
                 </CardHeader>
-                <CardContent>
-                    <div className="grid grid-cols-2 gap-4 h-fit p-4">
+                <CardContent className="min-w-0 px-0 sm:px-2">
+                    <div className={currentQuestion.options.some((option) => option.length > 40) ? "grid min-w-0 grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4" : "grid min-w-0 grid-cols-1 gap-3 min-[360px]:grid-cols-2 sm:gap-4"}>
                         {currentQuestion.options.map((option) => {
                             const isSelected = selectedAnswer === option;
                             const isRightAnswer = option === currentQuestion.correctAnswer;
 
-                            let buttonClass = "btn-secondary pastel-purple h-36";
+                            let buttonClass = "btn-secondary pastel-purple";
 
                             if (selectedAnswer && isRightAnswer) {
-                                buttonClass = 'btn-secondary pastel-mint h-36';
+                                buttonClass = 'btn-secondary pastel-mint';
                             } 
 
                             if (selectedAnswer && isSelected && !isRightAnswer) {
-                                buttonClass = 'btn-secondary pastel-pink h-36';
+                                buttonClass = 'btn-secondary pastel-pink';
                             }
                             return (
-                                <button key={option} className={buttonClass} onClick={() => handleAnswer(option)} disabled={selectedAnswer !== null}  >
+                                <button key={option} className={`${buttonClass} h-auto min-h-14 min-w-0 px-3 py-3 text-base leading-snug whitespace-normal [overflow-wrap:anywhere] sm:min-h-16 sm:px-4 sm:py-4 sm:text-lg`} onClick={() => handleAnswer(option)} disabled={selectedAnswer !== null}  >
                                     {option}
                                 </button>
                             )
@@ -101,20 +101,20 @@ const TaskQuiz = ({questions}: TaskQuizProps) => {
                     )}
 
                     {selectedAnswer && !isLastQuestion && (
-                        <div className="w-full flex justify-center">
-                            <button className="flex align-middle justify-center gap-2 btn-primary" onClick={() => handleNextQuestion()}>
-                                Next question <ArrowBigRight/>
+                        <div className="mt-4 flex w-full min-w-0 justify-center">
+                            <button className="btn-primary flex min-h-12 items-center justify-center gap-2 px-3 py-3 text-base [overflow-wrap:anywhere] sm:px-6" onClick={() => handleNextQuestion()}>
+                                Next question <ArrowBigRight className="shrink-0"/>
                             </button>
                         </div>
                     )}
 
                     {selectedAnswer && isLastQuestion && (
-                       <div className="w-full flex justify-center gap-2">
-                            <p className="hero-text text-2xl text-mint">
+                       <div className="mt-4 flex w-full min-w-0 flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap">
+                            <p className="min-w-0 text-center text-xl font-medium text-mint [overflow-wrap:anywhere] sm:text-2xl">
                                 Your score: {score} / {questions.length}
                             </p>
-                            <Link href='/subjects' className="btn-primary" >
-                                Finish <ArrowBigRight/>
+                            <Link href='/subjects' className="btn-primary min-h-12 gap-2 px-3 py-3 text-base sm:px-6" >
+                                Finish <ArrowBigRight className="shrink-0"/>
                             </Link>
                         </div>
                            
