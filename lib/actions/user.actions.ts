@@ -1,8 +1,8 @@
 "use server";
 
-import { paymentMethodSchema, signInFormSchema, updateUserSchema} from "../validators";
+import { paymentMethodSchema, signInFormSchema, updateProfileSchema, updateUserSchema} from "../validators";
 import { signUpFormSchema } from "../validators";
-import { auth, signIn, signOut } from "@/auth";
+import { auth, signIn, signOut, updateSession } from "@/auth";
 import { isRedirectError } from "next/dist/client/components/redirect-error";
 import { hashSync } from "bcrypt-ts-edge";
 import { prisma } from "../prisma";
@@ -119,6 +119,9 @@ export async function updateUserPaymentMethod(data: z.infer<typeof paymentMethod
 export async function updateProfile(user: {name: string, email: string}) {
     try {
         const session = await auth();
+        if (!session?.user?.id) throw new Error('User not found');
+
+        const profile = updateProfileSchema.parse(user);
 
         const currentUser = await prisma.user.findFirst({
             where: {
@@ -128,14 +131,19 @@ export async function updateProfile(user: {name: string, email: string}) {
 
         if(!currentUser) throw new Error('User not found')
 
-        await prisma.user.update({
+        const updatedUser = await prisma.user.update({
             where: {
                 id: currentUser.id
             },
             data: {
-                name: user.name,
-            }
+                name: profile.name,
+            },
+            select: { name: true },
         });
+
+        // Update the JWT cookie before re-rendering cached server layouts.
+        await updateSession({ user: { name: updatedUser.name } });
+        revalidatePath('/', 'layout');
 
         return {
             success: true,

@@ -47,8 +47,10 @@ export function ReviewSubscriptionButton({paypalClientId}: {paypalClientId: stri
 
     return (
         <PayPalScriptProvider options={{clientId: paypalClientId, currency: 'USD'}}>
-            <PrintLoadingState/>
-            <PayPalButtons createOrder={handleCreatePayPalOrder} onApprove={handleApprovePayPalOrder}/>
+            <div className="w-full min-w-0 wrap-anywhere">
+                <PrintLoadingState/>
+                <PayPalButtons className="w-full min-w-0" style={{layout: 'vertical', height: 45}} createOrder={handleCreatePayPalOrder} onApprove={handleApprovePayPalOrder}/>
+            </div>
         </PayPalScriptProvider>
     );
 }

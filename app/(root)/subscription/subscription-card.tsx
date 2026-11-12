@@ -32,26 +32,29 @@ const SubscriptionCard = () => {
 
 
     return (
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid min-w-0 grid-cols-1 items-stretch gap-4 sm:grid-cols-[repeat(auto-fit,minmax(min(100%,16rem),1fr))] sm:gap-6">
                 {SUBSCRIPTION_PLANS.map((subscription) => (
-                    <div key={subscription.value} className="my-4 flex items-stretch">
-                        <Card className="border-rounded bg-white p-4 w-full">
-                            <CardHeader className="flex justify-center items-center flex-col">
-                                <p className="hero-title text-3xl text-primary">{subscription.title}</p>
-                                <p className="hero-text m-0">{subscription.description}</p>
+                    <div key={subscription.value} className="flex min-w-0 items-stretch">
+                        <Card className="flex w-full min-w-0 flex-col rounded-(--radius-2xl,40px) bg-white p-3 sm:p-5">
+                            <CardHeader className="flex min-w-0 flex-col items-center justify-center gap-2 px-0 text-center">
+                                <p className="w-full min-w-0 text-2xl leading-tight font-extrabold tracking-[-0.055em] text-primary wrap-anywhere sm:text-3xl">{subscription.title}</p>
+                                <p className="w-full min-w-0 text-base leading-relaxed font-medium text-(--muted) wrap-anywhere">{subscription.description}</p>
                             </CardHeader>
-                            <CardContent className="">
-                                <div className="flex items-baseline-last justify-center">
-                                    <p className="hero-text text-mint text-3xl m-0">${subscription.price}</p>
-                                    <p className="hero-text">/{subscription.duration}</p>
+                            <CardContent className="flex min-w-0 flex-1 flex-col gap-5 px-0 pt-5">
+                                <div className="flex min-w-0 flex-wrap items-baseline justify-center gap-x-1 gap-y-1 text-center">
+                                    <p className="text-3xl leading-tight font-medium text-mint">${subscription.price}</p>
+                                    <p className="min-w-0 text-base leading-relaxed font-medium text-(--muted) wrap-anywhere">/ {subscription.duration}</p>
                                 </div>
-                                {subscription.features.map((feature) => (
-                                    <div key={feature} className="hero-text flex items-center gap-2">
-                                        <Check className="text-mint"/> {feature}
+                                <div className="flex min-w-0 flex-col gap-3">
+                                    {subscription.features.map((feature) => (
+                                    <div key={feature} className="flex min-w-0 items-start gap-2 text-base leading-relaxed font-medium text-(--muted)">
+                                        <Check className="mt-1 size-5 shrink-0 text-mint"/>
+                                        <span className="min-w-0 wrap-anywhere">{feature}</span>
                                     </div>
                                 ))}
-                                <div className="flex-center m-4">
-                                    <button className='btn-primary pastel-mint text-teal-600' disabled={isPending} onClick={() => onChoose({
+                                </div>
+                                <div className="mt-auto flex w-full min-w-0 justify-center pt-1">
+                                    <button className='btn-primary pastel-mint min-h-12 w-full min-w-0 px-3 py-3 text-base leading-snug whitespace-normal text-teal-600 wrap-anywhere sm:px-4' disabled={isPending} onClick={() => onChoose({
                                         plan: subscription.value,
                                     })}>
                                    {subscription.buttonText}

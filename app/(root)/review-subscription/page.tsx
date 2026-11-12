@@ -40,69 +40,74 @@ const ReviewSubscriptionPage = async () => {
   }
 
   return (
-    <div>
-      <CheckoutSteps current={2} />
+    <div className="w-full min-w-0">
+      <div className="min-w-0 [&>div]:flex-wrap [&>div]:gap-y-3 [&_.nav-link]:max-w-full [&_.nav-link]:text-center">
+        <CheckoutSteps current={2} />
+      </div>
       <div className="badge">
         <p>Subscription</p>
       </div>
       <div>
-        <p className="hero-title text-4xl">Review your subscription</p>
+        <p className="mt-6 min-w-0 text-2xl leading-tight font-extrabold tracking-[-0.055em] text-[#29276f] wrap-anywhere sm:text-3xl lg:text-4xl">Review your subscription</p>
       </div>
-      <div  className="flex justify-around w-full">
-        <Card className="border-2 border-rounded pastel-purple p-4 w-xl m-5 ">
-          <CardHeader className="flex justify-center items-center flex-col">
-            <p className="hero-title text-3xl text-primary">
+      <div className="my-6 grid w-full min-w-0 grid-cols-1 items-start gap-5 sm:gap-6 lg:grid-cols-2">
+        <Card className="pastel-purple w-full min-w-0 self-start rounded-(--radius-2xl,40px) border-2 p-3 sm:p-5">
+          <CardHeader className="flex min-w-0 flex-col items-center justify-center gap-2 px-0 text-center">
+            <p className="w-full min-w-0 text-2xl leading-tight font-extrabold tracking-[-0.055em] text-primary wrap-anywhere sm:text-3xl">
               {selectedPlan.title}
             </p>
-            <p className="hero-text m-0">{selectedPlan.description}</p>
+            <p className="min-w-0 text-base leading-relaxed font-medium text-(--muted) wrap-anywhere">{selectedPlan.description}</p>
           </CardHeader>
-          <CardContent className="">
-            <div className="flex items-baseline-last justify-center">
-              <p className="hero-text text-mint text-3xl m-0">
+          <CardContent className="flex min-w-0 flex-col gap-5 px-0 pt-5">
+            <div className="flex min-w-0 flex-wrap items-baseline justify-center gap-x-1 gap-y-1 text-center">
+              <p className="text-3xl leading-tight font-medium text-mint">
                 ${selectedPlan.price}
               </p>
-              <p className="hero-text">/{selectedPlan.duration}</p>
+              <p className="min-w-0 text-base leading-relaxed font-medium text-(--muted) wrap-anywhere">/{selectedPlan.duration}</p>
             </div>
-            {selectedPlan.features.map((feature) => (
-              <div key={feature} className="hero-text flex items-center gap-2 mb-4">
-                <Check className="text-mint" /> {feature}
-              </div>
-            ))}
-            <Link href='/subscription' className="btn-secondary flex justify-center">
+            <div className="flex min-w-0 flex-col gap-3">
+              {selectedPlan.features.map((feature) => (
+                <div key={feature} className="flex min-w-0 items-start gap-2 text-base leading-relaxed font-medium text-(--muted)">
+                  <Check className="mt-1 size-5 shrink-0 text-mint" />
+                  <span className="min-w-0 wrap-anywhere">{feature}</span>
+                </div>
+              ))}
+            </div>
+            <Link href='/subscription' className="btn-secondary flex min-h-12 w-full justify-center px-3 py-3 text-base leading-snug">
                 Edit
             </Link>
           </CardContent>
         </Card>
-        <Card className="border-2 border-rounded bg-white p-4 m-5 w-xl">
-            <CardHeader>
-                <p className="hero-title text-2xl">Your Selection</p>
+        <Card className="w-full min-w-0 rounded-(--radius-2xl,40px) border-2 bg-white p-3 sm:p-5">
+            <CardHeader className="min-w-0 px-0 pb-4">
+                <p className="min-w-0 text-2xl leading-tight font-extrabold tracking-[-0.055em] text-[#29276f] wrap-anywhere sm:text-3xl">Your Selection</p>
             </CardHeader>
-            <CardContent>
-                <div className="flex-between">
-                    <p className="hero-text">Plan</p>
-                    <p className="hero-text text-black">{selectedPlan.title}</p>
+            <CardContent className="flex min-w-0 flex-col gap-4 px-0 text-base leading-relaxed font-medium text-(--muted) wrap-anywhere sm:gap-5">
+                <div className="grid min-w-0 grid-cols-1 gap-1 sm:grid-cols-2 sm:gap-3">
+                    <p className="min-w-0">Plan</p>
+                    <p className="min-w-0 text-black sm:text-right">{selectedPlan.title}</p>
                 </div>
-                <div className="flex-between">
-                    <p className="hero-text">Price</p>
-                    <p className="hero-text text-primary">${selectedPlan.price}</p>
+                <div className="grid min-w-0 grid-cols-1 gap-1 sm:grid-cols-2 sm:gap-3">
+                    <p className="min-w-0">Price</p>
+                    <p className="min-w-0 text-primary sm:text-right">${selectedPlan.price}</p>
                 </div>
-                <div className="hero-text">
+                <div className="min-w-0">
                     Billed every {' '} {selectedPlan.duration}
                 </div>
-                <hr className="hero-text border-b-2"></hr>
-                <div>
-                    <p className="hero-title text-xl">Payment Method</p>
-                    <div className="flex-between items-baseline">
-                        <p className="hero-text">{user.paymentMethod}</p>
-                        <Link href='/payment-method' className="btn-secondary">
+                <hr className="w-full border-b-2"></hr>
+                <div className="flex min-w-0 flex-col gap-3">
+                    <p className="min-w-0 text-xl leading-snug font-extrabold tracking-[-0.055em] text-[#29276f] sm:text-2xl">Payment Method</p>
+                    <div className="flex min-w-0 flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
+                        <p className="min-w-0">{user.paymentMethod}</p>
+                        <Link href='/payment-method' className="btn-secondary min-h-12 w-full shrink-0 px-3 py-3 text-base leading-snug sm:w-auto sm:px-5">
                             Edit
                         </Link>
                     </div>
                 </div>
-                <div className="w-full">
-                    <div className="flex-between items-baseline">
-                        <p className="hero-title text-xl pb-0">Auto-revew</p> 
-                        {selectedPlan.autoRenew === true ? <Check className="text-mint"/> : <X className="text-red-700"/>}
+                <div className="w-full min-w-0">
+                    <div className="flex min-w-0 items-center justify-between gap-3">
+                        <p className="min-w-0 text-xl leading-snug font-extrabold tracking-[-0.055em] text-[#29276f] sm:text-2xl">Auto-revew</p>
+                        {selectedPlan.autoRenew === true ? <Check className="size-6 shrink-0 text-mint"/> : <X className="size-6 shrink-0 text-red-700"/>}
                     </div>
                 </div>
                 <ReviewSubscriptionButton paypalClientId={paypalClientId}/>

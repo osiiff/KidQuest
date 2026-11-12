@@ -20,7 +20,7 @@ const TaskPage = async (props: {params: Promise<{slug: string}>}) => {
             
             <nav aria-label="Breadcrumb" className="w-full min-w-0">
                 <div className="w-fit max-w-full rounded-2xl bg-white p-2 text-sm text-primary shadow-2xs sm:p-2.5 sm:text-base">
-                    <Link href={`/subjects/${task.subject.slug}`} className="flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1 [overflow-wrap:anywhere]">
+                    <Link href={`/subjects/${task.subject.slug}`} className="flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1 wrap-anywhere">
                         <HomeIcon className="size-5 shrink-0"/>
                         <p className="min-w-0 max-w-full">{task.subject.name}</p>
                         <Dot className="size-5 shrink-0"/>

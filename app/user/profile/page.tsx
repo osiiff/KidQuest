@@ -1,6 +1,6 @@
 import { auth } from '@/auth';
 import { Metadata } from 'next';
-import {SessionProvider} from 'next-auth/react'
+import { redirect } from 'next/navigation';
 import ProfileForm from './profile-form';
 
 export const metadata: Metadata = {
@@ -9,15 +9,14 @@ export const metadata: Metadata = {
 
 const ProfilePage = async () => {
     const session = await auth();
+    if (!session?.user?.id) redirect('/sign-in');
     return ( 
-        <SessionProvider session={session}>
             <div className='max-w-md mx-auto space-y-4 p-5'>
                 <h2 className='hero-title text-5xl'> 
                     Profile
                 </h2>
-                <ProfileForm/>
+                <ProfileForm user={{name: session.user.name ?? '', email: session.user.email ?? ''}}/>
             </div>
-        </SessionProvider>
      );
 }
  

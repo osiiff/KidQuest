@@ -5,18 +5,16 @@ import { Input } from "@/components/ui/input";
 import { updateProfile } from "@/lib/actions/user.actions";
 import { updateProfileSchema } from "@/lib/validators";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useSession } from "next-auth/react";
 import { Controller, useForm } from "react-hook-form";
 import { toast } from "sonner";
 import z from "zod";
 
-const ProfileForm = () => {
-    const {data: session, update} = useSession();
+const ProfileForm = ({user}: {user: {name: string; email: string}}) => {
     const form = useForm<z.infer<typeof updateProfileSchema>>({
         resolver: zodResolver(updateProfileSchema),
         defaultValues: {
-            name: session?.user?.name ?? '',
-            email: session?.user?.email ?? ''
+            name: user.name,
+            email: user.email
         }
     })
 
@@ -24,16 +22,8 @@ const ProfileForm = () => {
     const res = await updateProfile(values);
     if (!res.success) {
       toast.error(res.message);
+      return;
     }
-
-    const newSession = {
-        ...session,
-        user: {
-            ...session?.user,
-            name: values.name
-        }
-    }
-    await update(newSession);
 
     if(res.success) {
       toast.success(res.message);

@@ -25,7 +25,7 @@ const TaskCard = ({task}: TaskCardProps) => {
                         className={`rounded-2xl object-contain ${hasBlackCorners ? "scale-110" : ""}`}
                     />
                 </div>
-                <p className="min-w-0 break-words text-sm leading-snug font-medium text-[var(--muted)] sm:text-base">{task.title}</p>
+                <p className="min-w-0 wrap-break-word text-sm leading-snug font-medium text-(--muted) sm:text-base">{task.title}</p>
             </Link>
         </Card>
     )
