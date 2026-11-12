@@ -82,7 +82,7 @@ const ReviewSubscriptionPage = async () => {
             <CardHeader className="min-w-0 px-0 pb-4">
                 <p className="min-w-0 text-2xl leading-tight font-extrabold tracking-[-0.055em] text-[#29276f] wrap-anywhere sm:text-3xl">Your Selection</p>
             </CardHeader>
-            <CardContent className="flex min-w-0 flex-col gap-4 px-0 text-base leading-relaxed font-medium text-(--muted) wrap-anywhere sm:gap-5">
+            <CardContent className="flex min-w-0 flex-col gap-4 px-0 text-base leading-relaxed font-medium text-muted wrap-anywhere sm:gap-5">
                 <div className="grid min-w-0 grid-cols-1 gap-1 sm:grid-cols-2 sm:gap-3">
                     <p className="min-w-0">Plan</p>
                     <p className="min-w-0 text-black sm:text-right">{selectedPlan.title}</p>

@@ -23,7 +23,7 @@ const UserButton = async ({ variant = "default" }: { variant?: "default" | "comp
                 {!session && (
                     <>
                         <SheetClose asChild>
-                            <Link href='/sign-in' className="btn-secondary w-full">Sign In</Link>
+                            <Link href='/sign-in' className="btn-secondary w-full rounded-full">Sign In</Link>
                         </SheetClose>
                         <SheetClose asChild>
                             <Link href='/sign-up' className="btn-primary w-full">Sign Up</Link>
@@ -38,7 +38,7 @@ const UserButton = async ({ variant = "default" }: { variant?: "default" | "comp
     if (!session) {
         if (variant === "compact") {
             return (
-                <Link href='/sign-in' className="inline-flex min-h-11 w-auto flex-none items-center justify-center rounded-md border-[1.5px] border-[rgba(139,124,246,0.28)] bg-white/75 px-2 text-sm font-bold whitespace-nowrap text-(--primary-dark) shadow-[0_12px_26px_rgba(92,84,170,0.08)] transition hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:px-4 sm:text-base">
+                <Link href='/sign-in' className="inline-flex min-h-11 w-auto flex-none items-center justify-center rounded-full border-[1.5px] border-[rgba(139,124,246,0.28)] bg-white/75 px-2 text-sm font-bold whitespace-nowrap text-(--primary-dark) shadow-[0_12px_26px_rgba(92,84,170,0.08)] transition hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:px-4 sm:text-base ">
                     Sign In
                 </Link>
             );
@@ -46,7 +46,7 @@ const UserButton = async ({ variant = "default" }: { variant?: "default" | "comp
 
         return (
             <>
-                <Link href='/sign-in' className="btn-secondary">
+                <Link href='/sign-in' className="btn-secondary rounded-full">
                     Sign In
                 </Link>
                 <Link href='/sign-up' className="btn-primary">
@@ -75,7 +75,7 @@ const UserButton = async ({ variant = "default" }: { variant?: "default" | "comp
                             <div className="truncate text-base leading-6 font-semibold text-primary" title={session.user?.name ?? undefined}>
                                 {session.user?.name}
                             </div>
-                            <div className="truncate text-sm leading-5 font-normal text-(--muted)" title={session.user?.email ?? undefined}>
+                            <div className="truncate text-sm leading-5 font-normal text-muted" title={session.user?.email ?? undefined}>
                                 {session.user?.email}
                             </div>
                         </div>
